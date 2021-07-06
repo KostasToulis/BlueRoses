@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <title>Blue Roses</title>
+    <style>
+        #loader {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000;
+        }
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out;
+        }
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0;
+            }
+        }
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        .header-container,
+        .sidebar-logo {
+            /* background-color:rgb(0, 0, 85) */
+            background: linear-gradient(to bottom, rgb(0, 0, 85) 0%, rgb(53, 53, 134) 100%);
+        }
+        .sidebar-menu {
+            background-color: rgb(53, 53, 134);
+        }
+
+
+        ul.images {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: auto; 
+            /* width:10em;
+            height: 20em;
+            overflow: auto;
+            white-space: nowrap;
+            /* display: inline-block; */
+        }
+        ul.images li {
+            flex: 0 0 auto;
+            padding: 1em;
+            width: 45em;
+            height: 30em;
+        }
+
+
+        .ti-menu {
+            color: white;
+        }
+        .search-icon {
+            color: white;
+        }
+        .title {
+            color: white;
+        }
+        .lh1 {
+            color: white;
+        }
+        /*Gallery css*/
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        img {
+        vertical-align: middle;
+        }
+
+        /* Position the image container (needed to position the left and right arrows) */
+        .container {
+        position: relative;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+        display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+        cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+        }
+
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+        float: left;
+        width: 20%;
+        }
+
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+        opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+        opacity: 1;
+        }
+        /*Gallery css*/
+
+
+        
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+
+    <!-- lightgallery plugins -->
+    <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
+
+
+    <!-- OR -->
+
+   <!-- <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />-->
+
+
+    </head>
+    <body class="app">
+        <div id="loader"><div class="spinner"></div></div>
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                setTimeout(() => {
+                    loader.classList.add("fadeOut");
+                }, 300);
+            });
+        </script>
+        <div>
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer peer-greed">
+                                <a class="sidebar-link td-n" href="index.html">
+                                    <div class="peers ai-c fxw-nw">
+                                        <div class="peer">
+                                            <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
+                                        </div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white">BlueRoses</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="peer">
+                                <div class="mobile-toggle sidebar-toggle">
+                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu scrollable pos-r">
+                        <li class="nav-item mT-30 active">
+                            <a class="sidebar-link" href="index.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-home"></i> </span><span class="title">Info</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="email.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-email"></i> </span><span class="title">Gallery</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="compose.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-map"></i> </span><span class="title">Videos</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-container">
+                <div class="header navbar">
+                    <div class="header-container">
+                        <ul class="nav-left">
+                            <li>
+                                <a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
+                            </li>
+                            <li class="search-box">
+                                <a class="search-toggle no-pdd-right" href="javascript:void(0);"><i class="search-icon ti-search pdd-right-10"></i> <i class="search-icon-close ti-close pdd-right-10"></i></a>
+                            </li>
+                            <li class="search-input"><input class="form-control" type="text" placeholder="Search..." /></li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="notifications dropdown">
+                                <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <main class="main-content bgc-grey-200">
+                    <div id="mainContent">
+        
+                        <!-- <div class="main-content bgc-grey-200"> -->
+                            <!-- <div class="bd bgc-white"> -->
+                            <div class="layers">
+                                <div class="layer w-100">
+                                    <a href="Marinas.html" > <h1 style="padding-left: 2em;">Marinas</h1> </a>
+                                </div>
+                                <div class="layer w-100">
+                                    <ul class="images">
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                    </ul>
+                                </div>
+                                
+                                
+                            </div>
+
+                            <div class="layers">
+
+                                <div class="layer w-100">
+                                    <a href="Marinas.html" > <h1 style="padding-left: 2em;">Cultural Sites</h1> </a>
+                                </div>
+                                <div class="layer w-100">
+                                    <ul class="images">
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            <!-- </div> -->
+                            
+                        <!-- </div> -->
+                            
+                            <!-- <div class="row gap-20 masonry pos-r" style="position: relative; height: 2395.4px;">
+                                <div class="masonry-item col-12" style="position: absolute; left: 0%; top: 123.6px;">
+                                    <div class="masonry-sizer col-md-6"></div>
+                                    <div class="bd bgc-white">
+                                        <div class="peers fxw-nw@lg+ ai-s">
+                                            <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-">
+                                                <div class="layers">
+                                                    <div class="layer w-100 mB-10">
+                                                        <a href="Marinas.html"> <h1>Marinas</h1> </a>
+                                                    </div>
+                                                    <div class="layer w-100">
+                                                        <ul class="images">
+                                                            <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                                            <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                                            <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                               
+                                                
+                                            </div>
+                                            <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-">
+                                                <div class="layers">
+                                                    <div class="layer w-100 mB-10">
+                                                        <a href="Marinas.html"> <h1>Cultural Sites</h1> </a>
+                                                    </div>
+                                                    <div class="layer w-100">
+                                                        <ul class="images">
+                                                            <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                                            <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                                            <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <h1>hi</h1>
+                                            
+                                            </div>
+                                        </div>
+                            
+                            </div> -->
+                            
+
+
+                                    
+                                    <!-- <a href="Marinas.html">
+                                        <h1>Marinas</h1>
+                                    </a>
+                                    <ul class="images">
+                                        
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Main_Banner.jpg" width="100%" height="100%"></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="masonry-item col-12" style="position: absolute; left: 0%; top: 123.6px;">
+                                <div class="bd bgc-white">
+                                    <a href="Marinas.html">
+                                        <h1>Cultural Sites</h1>
+                                    </a>
+                                    <ul class="images">
+                                       
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                        <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                            
+                            <!-- <h1 style="text-align: center;">Explore...</h1>
+                            <div class="row gap-20 masonry pos-r" style="position: relative;
+                            height: 1361.4px;"> 
+                            
+                                <div class="masonry-sizer col-md-6"></div>
+                                <a href="slideshow.html">
+                                    <div class="masonry-item col-md-6" style="position: absolute; left: 0%; top: 0px;">
+                                        <div class="bd bgc-white p-20">
+                                            <div class="layers">
+                                                <div class="layer w-100 mB-10">
+                                                    <h2 style="text-align: center;">Marinas</h1>
+                                                    <div>
+                                                        <img src="images/Main_Banner.jpg" width="100%" height="100%">
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </div>   
+                                    </div>
+                                </a>
+                                
+                                <a href="slideshow.html">
+                                    <div class="masonry-item col-md-6" style="position: absolute; left: 50%; top: 0px;">
+                                        <div class="bd bgc-white p-20">
+                                            <div class="layers">
+                                                <div class="layer w-100 mB-10">
+                                                    <h2 style="text-align: center;">Cultural Sites</h1>
+                                                    <div>
+                                                        <img src="images/Shipwreck.jpg" width="100%" height="100%">
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                    </div>
+                                </a>
+                                
+    
+                                
+                            </div> -->
+                            
+                        
+                    </div>
+
+                </main>
+                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+                    <span>Copyright © 2017 Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a>. All rights reserved.</span>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript" src="vendor.js"></script>
+        <script type="text/javascript" src="bundle.js"></script>
+
+        <script src="js/lightgallery.umd.js"></script>
+
+        <!-- lightgallery plugins -->
+        <script src="js/plugins/lg-thumbnail.umd.js"></script>
+        <script src="js/plugins/lg-zoom.umd.js"></script>
+
+
+        <script>
+            
+
+        </script>
+    </body>
+</html>

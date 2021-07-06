@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+        <title>Blank</title>
+        <style>
+            #loader {
+                transition: all 0.3s ease-in-out;
+                opacity: 1;
+                visibility: visible;
+                position: fixed;
+                height: 100vh;
+                width: 100%;
+                background: #fff;
+                z-index: 90000;
+            }
+            #loader.fadeOut {
+                opacity: 0;
+                visibility: hidden;
+            }
+            .spinner {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: calc(50% - 20px);
+                left: calc(50% - 20px);
+                background-color: #333;
+                border-radius: 100%;
+                -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+                animation: sk-scaleout 1s infinite ease-in-out;
+            }
+            @-webkit-keyframes sk-scaleout {
+                0% {
+                    -webkit-transform: scale(0);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    opacity: 0;
+                }
+            }
+            @keyframes sk-scaleout {
+                0% {
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    opacity: 0;
+                }
+            }
+
+
+.zone {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  left: 0;
+}
+
+.zone.active {
+  display: block;
+}
+
+.zone > h1 {
+  position: absolute;
+  padding: 10px 10px;
+  margin: 0;
+  color: red;
+  right: 0;
+  bottom: 0;
+}
+
+.zone.dynamic {
+  background: rgba(0, 0, 255, 0.1);
+}
+
+.zone.semi {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zone.static {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.zone1 {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  left: 0;
+}
+
+.zone1.active {
+  display: block;
+}
+
+.zone1 > h1 {
+  position: absolute;
+  padding: 10px 10px;
+  margin: 0;
+  color: blue;
+  right: 0;
+  bottom: 0;
+}
+
+.zone1.dynamic {
+  background: rgba(0, 0, 255, 0.1);
+}
+
+.zone1.semi {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zone1.static {
+  background: rgba(0, 0, 255, 0.1);
+}
+
+
+#left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  margin-top:30%;
+  /*background: rgba(0, 255, 0, 0.1);*/
+}
+
+#right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  margin-top:30%;
+ /* background: rgba(0, 0, 255, 0.1);*/
+}
+        </style>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body class="app">
+        <div id="loader"><div class="spinner"></div></div>
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                setTimeout(() => {
+                    loader.classList.add("fadeOut");
+                }, 300);
+            });
+        </script>
+        <div>
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer peer-greed">
+                                <a class="sidebar-link td-n" href="index.html">
+                                    <div class="peers ai-c fxw-nw">
+                                        <div class="peer">
+                                            <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
+                                        </div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text">Adminator</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="peer">
+                                <div class="mobile-toggle sidebar-toggle">
+                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu scrollable pos-r">
+                        <li class="nav-item mT-30 active">
+                            <a class="sidebar-link" href="index.html">
+                                <span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="email.html">
+                                <span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Email</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="compose.html">
+                                <span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Compose</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="calendar.html">
+                                <span class="icon-holder"><i class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">Calendar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="chat.html">
+                                <span class="icon-holder"><i class="c-deep-purple-500 ti-comment-alt"></i> </span><span class="title">Chat</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="charts.html">
+                                <span class="icon-holder"><i class="c-indigo-500 ti-bar-chart"></i> </span><span class="title">Charts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="forms.html">
+                                <span class="icon-holder"><i class="c-light-blue-500 ti-pencil"></i> </span><span class="title">Forms</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="sidebar-link" href="ui.html">
+                                <span class="icon-holder"><i class="c-pink-500 ti-palette"></i> </span><span class="title">UI Elements</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Tables</span> <span class="arrow"><i class="ti-angle-right"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="sidebar-link" href="basic-table.html">Basic Table</a></li>
+                                <li><a class="sidebar-link" href="datatable.html">Data Table</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder"><i class="c-purple-500 ti-map"></i> </span><span class="title">Maps</span> <span class="arrow"><i class="ti-angle-right"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="google-maps.html">Google Map</a></li>
+                                <li><a href="vector-maps.html">Vector Map</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder"><i class="c-red-500 ti-files"></i> </span><span class="title">Pages</span> <span class="arrow"><i class="ti-angle-right"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="sidebar-link" href="blank.html">Blank</a></li>
+                                <li><a class="sidebar-link" href="404.html">404</a></li>
+                                <li><a class="sidebar-link" href="500.html">500</a></li>
+                                <li><a class="sidebar-link" href="signin.html">Sign In</a></li>
+                                <li><a class="sidebar-link" href="signup.html">Sign Up</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span><span class="title">Multiple Levels</span> <span class="arrow"><i class="ti-angle-right"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item dropdown">
+                                    <a href="javascript:void(0);"><span>Menu Item</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="javascript:void(0);">
+                                        <span>Menu Item</span> <span class="arrow"><i class="ti-angle-right"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:void(0);">Menu Item</a></li>
+                                        <li><a href="javascript:void(0);">Menu Item</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-container">
+                <div class="header navbar">
+                    <div class="header-container">
+                        <ul class="nav-left">
+                            <li>
+                                <a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
+                            </li>
+                            <li class="search-box">
+                                <a class="search-toggle no-pdd-right" href="javascript:void(0);"><i class="search-icon ti-search pdd-right-10"></i> <i class="search-icon-close ti-close pdd-right-10"></i></a>
+                            </li>
+                            <li class="search-input"><input class="form-control" type="text" placeholder="Search..." /></li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="notifications dropdown">
+                                <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                                    <li>
+                                        <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <span>
+                                                            <span class="fw-500">John Doe</span> <span class="c-grey-600">liked your <span class="text-dark">post</span></span>
+                                                        </span>
+                                                        <p class="m-0"><small class="fsz-xs">5 mins ago</small></p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <span>
+                                                            <span class="fw-500">Moo Doe</span> <span class="c-grey-600">liked your <span class="text-dark">cover image</span></span>
+                                                        </span>
+                                                        <p class="m-0"><small class="fsz-xs">7 mins ago</small></p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <span>
+                                                            <span class="fw-500">Lee Doe</span> <span class="c-grey-600">commented on your <span class="text-dark">video</span></span>
+                                                        </span>
+                                                        <p class="m-0"><small class="fsz-xs">10 mins ago</small></p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pX-20 pY-15 ta-c bdT">
+                                        <span>
+                                            <a href="" class="c-grey-600 cH-blue fsz-sm td-n">View All Notifications <i class="ti-angle-right fsz-xs mL-10"></i></a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="notifications dropdown">
+                                <span class="counter bgc-blue">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-email"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="pX-20 pY-15 bdB"><i class="ti-email pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Emails</span></li>
+                                    <li>
+                                        <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <div>
+                                                            <div class="peers jc-sb fxw-nw mB-5">
+                                                                <div class="peer"><p class="fw-500 mB-0">John Doe</p></div>
+                                                                <div class="peer"><small class="fsz-xs">5 mins ago</small></div>
+                                                            </div>
+                                                            <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <div>
+                                                            <div class="peers jc-sb fxw-nw mB-5">
+                                                                <div class="peer"><p class="fw-500 mB-0">Moo Doe</p></div>
+                                                                <div class="peer"><small class="fsz-xs">15 mins ago</small></div>
+                                                            </div>
+                                                            <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                                    <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt="" /></div>
+                                                    <div class="peer peer-greed">
+                                                        <div>
+                                                            <div class="peers jc-sb fxw-nw mB-5">
+                                                                <div class="peer"><p class="fw-500 mB-0">Lee Doe</p></div>
+                                                                <div class="peer"><small class="fsz-xs">25 mins ago</small></div>
+                                                            </div>
+                                                            <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pX-20 pY-15 ta-c bdT">
+                                        <span>
+                                            <a href="email.html" class="c-grey-600 cH-blue fsz-sm td-n">View All Email <i class="fs-xs ti-angle-right mL-10"></i></a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
+                                    <div class="peer mR-10"><img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="" /></div>
+                                    <div class="peer"><span class="fsz-sm c-grey-900">John Doe</span></div>
+                                </a>
+                                <ul class="dropdown-menu fsz-sm">
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-settings mR-10"></i> <span>Setting</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i> <span>Profile</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i> <span>Messages</span></a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Logout</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <main class="main-content bgc-grey-100">
+                    <div id="mainContent">
+                        <div class="full-container">
+                          <div class="row">
+                            <div class="col-lg-2 col-md-2"></div>
+                            <div class="col-lg-8 col-md-8">
+                              
+                              
+                              <video controls preload="metadata" autoplay webkit-playsinline="webkit-playsinline" class="videoPlayer"> 
+                                <source src="http://192.168.15.151:5080/" type="video/mp4" /> 
+                                
+                                
+                              </video>
+
+                         <!-- <video  preload="metadata" autoplay controls style="position: absolute;z-index: 11;" width="100%" > 
+                            <source src="https://cdn3.wowza.com/1/aGZseUdqaFJDaWFR/YmhVMGNx/hls/live/playlist.m3u8" type="video/mp4" /> 
+                          </video>-->
+                          <!--http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4--><!--https://www.w3schools.com/tags/movie.mp4-->
+
+                            <!--rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov-->
+                        </div>
+                        <div class="col-lg-2 col-md-2"></div>
+
+                        </div>
+                            <div id="left">
+                              
+                        
+                                <div class="zone static active" style="position: relative;  min-width: 200px; z-index: 12;" ><h1></h1></div><!--static-->  <!--background-color: #dddddd-->
+                              <!--<div style="position: relative;  min-height: 200px; background-color: #dddddd" id="zone_joystick"></div>-->
+                                <div id="debug">
+                                  <ul>
+                                    <li class="position">
+                                      position :
+                                      <ul>
+                                        <li class="x">x : <span class='data'></span></li>
+                                        <li class="y">y : <span class='data'></span></li>
+                                      </ul>
+                                    </li>
+                                    <li class="force">force : <span class='data'></span></li>
+                                    <li class="pressure">pressure : <span class='data'></span></li>
+                                    <li class="distance">distance : <span class='data'></span></li>
+                                    <li class="angle">
+                                      angle :
+                                      <ul>
+                                        <li class="radian">radian : <span class='data'></span></li>
+                                        <li class="degree">degree : <span class='data'></span></li>
+                                      </ul>
+                                    </li>
+                                    <li class="direction">
+                                      direction :
+                                      <ul>
+                                        <li class="x">x : <span class='data'></span></li>
+                                        <li class="y">y : <span class='data'></span></li>
+                                        <li class="angle">angle : <span class='data'></span></li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                
+                        
+                                  <div class="dump"><!--Κατεύθυνση--></div>
+                                </div> 
+                        
+                                
+                              </div>
+
+                              <div id="right">
+                                
+                                
+                                    <div class="zone1 static active" style="position: relative;  min-width: 200px; z-index: 12;" ><h1></h1></div> <!--static--> <!--background-color: #dddddd-->
+                                  <!--<div style="position: relative;  min-height: 200px; background-color: #dddddd" id="zone_joystick"></div>-->
+                                    <div id="debug1">
+                                      <ul>
+                                        <li class="position1">
+                                          position :
+                                          <ul>
+                                            <li class="x">x : <span class='data'></span></li>
+                                            <li class="y">y : <span class='data'></span></li>
+                                          </ul>
+                                        </li>
+                                        <li class="force">force : <span class='data'></span></li>
+                                        <li class="pressure">pressure : <span class='data'></span></li>
+                                        <li class="distance">distance : <span class='data'></span></li>
+                                        <li class="angle">
+                                          angle :
+                                          <ul>
+                                            <li class="radian">radian : <span class='data'></span></li>
+                                            <li class="degree">degree : <span class='data'></span></li>
+                                          </ul>
+                                        </li>
+                                        <li class="direction">
+                                          direction :
+                                          <ul>
+                                            <li class="x">x : <span class='data'></span></li>
+                                            <li class="y">y : <span class='data'></span></li>
+                                            <li class="angle">angle : <span class='data'></span></li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    
+                                      <div class="dump1"><!--Κατεύθυνση--></div>
+                                    </div> 
+                                  
+                                    
+                                    
+                                  </div>
+
+
+                              </div>
+
+                        </div>
+                    
+                </main>
+
+
+
+
+
+                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+                    <span>Copyright © 2017 Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a>. All rights reserved.</span>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript" src="nipplejs.js"></script>
+        <script type="text/javascript" src="vendor.js"></script>
+        <script type="text/javascript" src="bundle.js"></script>
+
+        <script>
+
+             /*Από εδώ */
+  var s = function(sel) {
+    return document.querySelector(sel);
+  };
+  var sId = function(sel) {
+    return document.getElementById(sel);
+  };
+  var removeClass = function(el, clss) {
+ //   el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
+  }
+  var joysticks = {
+    static: {
+      zone: s('.zone.static'),
+      mode: 'static',
+      position: {
+        left: '50%',
+        top: '50%'
+      },
+      color: 'red',
+      restOpacity: 1,
+    }
+  };
+  var joystick;
+
+
+// Get debug elements and map them
+var elDebug = sId('debug');
+var elDump = elDebug.querySelector('.dump');
+var els = {
+  position: {
+    x: elDebug.querySelector('.position .x .data'),
+    y: elDebug.querySelector('.position .y .data')
+  },
+  force: elDebug.querySelector('.force .data'),
+  pressure: elDebug.querySelector('.pressure .data'),
+  distance: elDebug.querySelector('.distance .data'),
+  angle: {
+    radian: elDebug.querySelector('.angle .radian .data'),
+    degree: elDebug.querySelector('.angle .degree .data')
+  },
+  direction: {
+    x: elDebug.querySelector('.direction .x .data'),
+    y: elDebug.querySelector('.direction .y .data'),
+    angle: elDebug.querySelector('.direction .angle .data')
+  }
+};//console.log(els);
+
+var timeoutCreate;
+
+function createThrottle (evt) {
+  clearTimeout(timeoutCreate);
+  timeoutCreate = setTimeout(() => {
+    createNipple(evt);
+  }, 100);
+}
+
+//sId('buttons').onclick = sId('buttons').ontouchend = createThrottle;
+
+createNipple('static');
+
+function bindNipple() {
+  joystick.on('start end', function(evt, data) {//console.log(data);
+    dump(evt.type);
+    debug(data);
+  }).on('move', function(evt, data) {
+    debug(data);
+  }).on('dir:up plain:up dir:left plain:left dir:down ' +
+        'plain:down dir:right plain:right',
+        function(evt, data) {
+    dump(evt.type);
+  }
+       ).on('pressure', function(evt, data) {
+    debug({
+      pressure: data
+    });
+  });
+}
+
+function createNipple(evt) {
+  var type = typeof evt === 'string' ?
+      evt : evt.target.getAttribute('data-type');
+  if (joystick) {
+    joystick.destroy();
+  }
+  //removeClass(s('.zone.active'), 'active');
+  //removeClass(s('.button.active'), 'active');
+  //removeClass(s('.highlight.active'), 'active');
+  //s('.highlight.' + type).className += ' active';
+  //s('.button.' + type).className += ' active';
+  //s('.zone.' + type).className += ' active';
+  joystick = nipplejs.create(joysticks[type]);
+  bindNipple();
+}
+
+// Print data into elements
+function debug(obj) {
+  function parseObj(sub, el) {
+    for (var i in sub) {
+      if (typeof sub[i] === 'object' && el) {
+        parseObj(sub[i], el[i]);
+      } else if (el && el[i]) {
+        el[i].innerHTML = sub[i];
+      }
+    }
+  }
+  setTimeout(function() {
+    parseObj(obj, els);
+  }, 0);
+}
+
+var nbEvents = 0;
+
+// Dump data
+function dump(evt) {
+  setTimeout(function() {
+    if (elDump.children.length > 4) {
+      elDump.removeChild(elDump.firstChild);
+    }
+    var newEvent = document.createElement('div');
+    //newEvent.innerHTML = '#' + nbEvents + ' : <span class="data">' +      evt + '</span>'; //αυτό εδώ δίνει το dump
+    elDump.appendChild(newEvent);
+    nbEvents += 1;
+  }, 0);
+}
+
+/*Έως εδώ */
+
+
+
+
+/*Από εδώ */
+var s = function(sel) {
+  return document.querySelector(sel);
+};
+var sId = function(sel) {
+  return document.getElementById(sel);
+};
+var removeClass = function(el, clss) {
+//   el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
+}
+var joysticks1 = {
+  static: {
+    zone: s('.zone1.static'),
+    mode: 'static',
+    position: {
+      left: '50%',
+      top: '50%',
+     // multitouch: true
+    },
+    color: 'blue',
+    restOpacity: 1,
+  }
+};
+var joystick1;
+
+
+// Get debug elements and map them
+var elDebug1 = sId('debug1');
+var elDump1 = elDebug1.querySelector('.dump1');
+var els1 = {
+position: {
+  x: elDebug1.querySelector('.position1 .x .data'),
+  y: elDebug1.querySelector('.position1 .y .data')
+},
+force: elDebug1.querySelector('.force .data'),
+pressure: elDebug1.querySelector('.pressure .data'),
+distance: elDebug1.querySelector('.distance .data'),
+angle: {
+  radian: elDebug1.querySelector('.angle .radian .data'),
+  degree: elDebug1.querySelector('.angle .degree .data')
+},
+direction: {
+  x: elDebug1.querySelector('.direction .x .data'),
+  y: elDebug1.querySelector('.direction .y .data'),
+  angle: elDebug1.querySelector('.direction .angle .data')
+}
+};
+
+var timeoutCreate1;
+
+function createThrottle1 (evt1) {
+clearTimeout(timeoutCreate1);
+timeoutCreate1 = setTimeout(() => {
+  createNipple1(evt1);
+}, 100);
+}
+
+//sId('buttons').onclick = sId('buttons').ontouchend = createThrottle;
+
+createNipple1('static');
+
+function bindNipple1() {
+joystick1.on('start end', function(evt1, data) { 
+  dump1(evt1.type);
+  debug1(data);
+}).on('move', function(evt1, data) {
+  debug1(data);
+}).on('dir:up plain:up dir:left plain:left dir:down ' +
+      'plain:down dir:right plain:right',
+      function(evt1, data) {
+  dump1(evt1.type);
+}
+     ).on('pressure1', function(evt1, data) {
+  debug1({
+    pressure1: data
+  });
+});
+}
+
+function createNipple1(evt1) {
+var type = typeof evt1 === 'string' ?
+    evt1 : evt1.target.getAttribute('data-type');
+if (joystick1) {
+  joystick1.destroy();
+}
+//removeClass(s('.zone.active'), 'active');
+//removeClass(s('.button.active'), 'active');
+//removeClass(s('.highlight.active'), 'active');
+//s('.highlight.' + type).className += ' active';
+//s('.button.' + type).className += ' active';
+//s('.zone.' + type).className += ' active';
+joystick1 = nipplejs.create(joysticks1[type]);//console.log(joysticks1[type]);
+bindNipple1();
+}
+
+// Print data into elements
+function debug1(obj1) { //console.log(obj1); //Αν θέλουμε να στέλνουμε distance/force πρέπει να μπει στην function :  function debug1(obj1)... Πιθανόν η dump1 και η debug1 να πρέπει να γίνει μια function (εκτός αν υπάρχει ξεχωριστός ρυθμιστής που δεν εξαρτάται από την ευαισθησία στο joystick)
+function parseObj1(sub1, el1) {
+  for (var ii in sub1) {
+    if (typeof sub1[ii] === 'object' && el1) {
+      parseObj1(sub1[ii], el1[ii]);
+    } else if (el1 && el1[ii]) {
+      el1[ii].innerHTML = sub1[ii];
+    }
+  }
+}
+setTimeout(function() {
+  parseObj1(obj1, els1);//console.log(obj1.distance);//console.log(obj1.force);
+}, 0);
+}
+
+var nbEvents1 = 0;
+
+// Dump data
+function dump1(evt1) { //console.log(nbEvents1);
+setTimeout(function() {
+  if (elDump1.children.length > 4) {
+    elDump1.removeChild(elDump1.firstChild);
+  }
+  var newEvent1 = document.createElement('div');
+  //newEvent1.innerHTML = '#' + nbEvents1 + ' : <span class="data">' +    evt1 + '</span>';//αυτό εδώ δίνει το dump
+  elDump1.appendChild(newEvent1);//console.log(evt1);
+  //Θέλω dir:right για right
+  var client = mqtt.connect('mqtt://150.145.4.170:8080'); //console.log(client);//var client = mqtt.connect('mqtt://150.145.4.170:8080');    //mqtt://150.217.8.86:1883   NAVIGO
+  //mqtt://test.mosquitto.org:8081 περνάει από Chrome(αλλά δεν παίζει στο κινητό)  και mqtt://test.mosquitto.org:8080 περνάει από Firefox(αλλά δεν παίζει στο κινητό)
+  if(evt1 == "dir:left")
+  { console.log('left');//console.log("connected flag  "+client.connected);
+//console.log(evt1);
+  client.on('connect', function () {console.log('connected-send  '+client.connected);
+      client.subscribe('blue-roses/europe/relative/MoveLeft/command', function (err) {console.log(client.subscribe('blue-roses/europe/relative/MoveLeft/command'));
+        if (!err) {
+          client.publish('blue-roses/europe/relative/MoveLeft/command', '2');
+        }
+        //console.log(err);
+        console.log(client.subscribe('blue-roses/europe/relative/MoveLeft/command'));
+      })
+    
+    })
+
+    client.on('message', function (topic, message) {
+      // message is Buffer
+      console.log(message.toString());
+      client.end();
+    })
+  }
+
+  /*
+  var client = mqtt.connect('mqtt://150.145.4.170:8080');  //var client = mqtt.connect('mqtt://150.145.4.170:8080');  Bibuli
+    client.on('connect', function () {console.log("connected flag  "+client.connected);
+      client.subscribe('blue-roses/europe/position/Heading/command', function (err) {
+        if (!err) {
+          client.publish('blue-roses/europe/position/Heading/command', '90.0')
+        }
+        console.log(err);
+      })
+      */
+  nbEvents1 += 1;
+}, 0);
+}
+
+/*Έως εδώ */
+
+        </script>
+
+<script id='player_embed' src='https://player.cloud.wowza.com/hosted/g9wbfxcp/wowza.js' type='text/javascript'></script>
+    </body>
+</html>
