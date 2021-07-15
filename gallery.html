@@ -3,7 +3,15 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-    <title>Gallery</title>
+    <title>BlueRoses-Gallery</title>
+    <!-- <script src="playbox.js"></script> -->
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+    <link href="css/themify-icons.css" rel="stylesheet">
+
+    <!-- lightgallery plugins -->
+    <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
+
     <style>
         #loader {
             transition: all 0.3s ease-in-out;
@@ -86,6 +94,29 @@
             height: 100%; 
             width: 100%;
             border-radius: 4%;
+        }
+
+        .gallery-img {
+            height: 250px; 
+            max-width: 350px;
+            /* border-radius: 1%; */
+            margin: 0.2%;
+            margin-right: -0.1%;
+        }
+
+        .gallery-container {
+            height: 80%;
+            width: 90%;
+        }
+        .gallery-container * {
+            height: 90%; 
+            width: 90%;
+            /* border-radius: 1%; */
+        }
+
+        #gallery-cotainer {
+            width: 20%;
+            height: 100%;
         }
         /*Gallery css*/
 
@@ -254,7 +285,7 @@
                     <div class="sidebar-logo">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer peer-greed">
-                                <a class="sidebar-link td-n" href="index.html">
+                                <a class="sidebar-link td-n" href="SplashScreen.html">
                                     <div class="peers ai-c fxw-nw">
                                         <div class="peer">
                                             <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
@@ -272,20 +303,20 @@
                     </div>
                     <ul class="sidebar-menu scrollable pos-r">
                         <li class="nav-item mT-30 active">
-                            <a class="sidebar-link" href="index.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-home"></i> </span><span class="title">Info</span>
+                            <a class="sidebar-link" href="info.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-info"></i> </span><span class="title">Info</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="sidebar-link" href="email.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-email"></i> </span><span class="title">Gallery</span>
+                            <a class="sidebar-link" href="gallery.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-image"></i> </span><span class="title">Gallery</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="sidebar-link" href="compose.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-map"></i> </span><span class="title">Videos</span>
+                            <a class="sidebar-link" href="video.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-video-clapper"></i> </span><span class="title">Videos</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
@@ -316,90 +347,35 @@
                 </div>
                 <main class="main-content bgc-grey-200">
                     <div id="mainContent">
-
-                        <div class="full-container" >
-
-                            <h2 style="text-align:center">Lightbox</h2>
-                            <div class="masonry-item col-md-12">
-                                <div class="bd bgc-white">
-                                    <div class="row">
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                                        </div>
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                                        </div>
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                                        </div>
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                                        </div>
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                                        </div>
-                                        <div class="col-md-3" style="padding:4px;">
-                                            <img src="images/Main_Banner.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="masonry-item col-md-12">
+                            <div id="lightgallery">
+                                <a href="images/Main_Banner.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/Main_Banner.jpg" class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
+                                </a>
+                                <a href="images/Shipwreck.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/Shipwreck.jpg" class= "gallery-img">
+                                </a>
+                                <a href="images/shipwreck_sm.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/shipwreck_sm.jpg" class= "gallery-img">
+                                </a>
+                                <a href="images/robot.jpeg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/robot.jpeg" class= "gallery-img">
+                                </a>
+                                <a href="images/shipwreck_md.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/shipwreck_md.jpg" class= "gallery-img">
+                                </a>
+                                <a href="images/seafloor3.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/seafloor3.jpg" class= "gallery-img">
+                                </a>
+                                <a href="images/seafloor2.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/seafloor2.jpg" class= "gallery-img">
+                                </a>
+                                <a href="images/seafloor.jfif" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                    <img src="images/seafloor.jfif" class= "gallery-img">
+                                </a>
                             </div>
-                            
-
-                            <div id="myModal" class="modal">
-                            <span class="close cursor" onclick="closeModal()">&times;</span>
-                            <div class="modal-content">
-
-                                <div class="mySlides">
-                                <div class="numbertext">1 / 4</div>
-                                <img src="images/Main_Banner.jpg" style="width:100%">
-                                </div>
-
-                                <div class="mySlides">
-                                <div class="numbertext">2 / 4</div>
-                                <img src="images/Main_Banner.jpg" style="width:100%">
-                                </div>
-
-                                <div class="mySlides">
-                                <div class="numbertext">3 / 4</div>
-                                <img src="images/Main_Banner.jpg" style="width:100%">
-                                </div>
-                                
-                                <div class="mySlides">
-                                <div class="numbertext">4 / 4</div>
-                                <img src="images/Main_Banner.jpg" style="width:100%">
-                                </div>
-                                
-                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                                <div class="caption-container">
-                                <p id="caption"></p>
-                                </div>
-
-
-                                <!-- <div class="column">
-                                <img class="demo cursor" src="img_nature_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
-                                </div>
-                                <div class="column">
-                                <img class="demo cursor" src="img_snow_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
-                                </div>
-                                <div class="column">
-                                <img class="demo cursor" src="img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-                                </div>
-                                <div class="column">
-                                <img class="demo cursor" src="img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-                                </div> -->
-                            </div>
-                            
-                            
                         </div>
+                        
                         
                     </div>
 
@@ -409,6 +385,7 @@
                 </footer> -->
             </div>
         </div>
+
         <script type="text/javascript" src="vendor.js"></script>
         <script type="text/javascript" src="bundle.js"></script>
 
@@ -418,7 +395,16 @@
         <script src="js/plugins/lg-thumbnail.umd.js"></script>
         <script src="js/plugins/lg-zoom.umd.js"></script>
 
-        <script>
+        
+        <script type="text/javascript">
+            lightGallery(document.getElementById('lightgallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                // ... other settings
+            });
+        </script>
+        
+        <!-- <script>
             function openModal() {
             document.getElementById("myModal").style.display = "block";
             }
@@ -455,9 +441,9 @@
             dots[slideIndex-1].className += " active";
             captionText.innerHTML = dots[slideIndex-1].alt;
             }
-        </script>
+        </script> -->
 
-        <script>
+        <!-- <script>
             var slideIndex = 0;
             showSlides();
             
@@ -477,7 +463,7 @@
                 // dots[slideIndex-1].className += " active";
                 setTimeout(showSlides, 3000); // Change image every 3 seconds
             }
-            </script>
+            </script> -->
 
     </body>
 </html>
