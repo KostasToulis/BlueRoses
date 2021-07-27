@@ -112,6 +112,23 @@
         .lh1 {
             color: white;
         }
+
+        /* Map CSS */
+        .map-container{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+        /* Map CSS */
+
         /*Gallery css*/
         body {
             font-family: Arial;
@@ -242,6 +259,13 @@
             padding-top: 5%;
         }
 
+        #map {
+            height: 630px;
+            min-height: 100px;
+            max-width: 1000px;
+            
+        }
+
         /* #main-content {
             padding-top: -10%;
             margin-top: -10%;
@@ -256,6 +280,17 @@
     <!-- lightgallery plugins -->
     <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
     <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
+
+
+    <script src="jvectomap/tests/assets/jquery-1.8.2.js"></script>
+
+    <!-- jvectormap plugins -->
+    <link rel="stylesheet" href="jvectomap/jquery-jvectormap.css" type="text/css" media="screen"/>
+
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
+  <script src="https://jvectormap.com/js/jquery-jvectormap-europe-mill.js"></script>
 
 
     <!-- OR -->
@@ -285,7 +320,7 @@
                                         <div class="peer">
                                             <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
                                         </div>
-                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white">BlueRoses</h5></div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
                                     </div>
                                 </a>
                             </div>
@@ -342,13 +377,125 @@
                 </div>
                 
                 <main class="main-content bgc-grey-200">
-                    <!-- <div class="bg-image" style="background-image: url(images/jellyfish3.jpg); height:50vh;">
-                        <h1 class="title-name" >Blue Roses</h1>
-                
+                    
+                    <div id="mainContent">
+                        <div class="row gap-20 masonry pos-r">
+                            <div class="masonry-sizer col-md-6"></div>
+                            
+                            
+                            <div class="masonry-item col-12">
+                                <div style="text-align: center; padding-top: 3%; padding-bottom: 5%;">
+                                    <h1 style="font-size: xxx-large; color:  rgb(11, 11, 122);">Blue Roses</h1>
+                                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+                                </div>
+                                <div class="bd bgc-white">
+                                    <div class="peers fxw-nw@lg+ ai-s">
+                                        <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                                            <div class="layers">
+                                                <div class="layer w-100 mB-10"><h4 class="lh-1" style="margin-left: 10%;">Mapped Sites</h6></div>
+                                                <div class="layer w-100">
+                                                    <!--Google map-->
+                                                    <!-- <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                                                      <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                                                        style="border:0" allowfullscreen></iframe>
+                                                    </div> -->
+                                                    
+                                                    <div id="map" style="margin: auto;"></div>
+                                                    
+                                                    
+                                                    <!-- <div class="vector-map" data-toggle="vectormap" data-map="world_mill"></div> -->
+                                                    <!--Google Maps-->
+                                                </div>   <!-- <div id="world-map-marker"></div> -->
+                                            </div>
+                                            
+                                            <div class="masonry-item col-md-6">
+                                                <div class="bd bgc-white p-20">
+                                                    <div class="layers">
+                                                        <div class="layer w-100 mB-10">
+                                                            <h6>Livestream</h6>
+                                                        </div>
+                                                        <div class="layer w-100">
+                                                            <div class="embed-responsive embed-responsive-16by9" >
+                                                                <iframe height="50%;" width="50%;" class="embed-responsive-item" src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                    </div>   -->
+                                            <div class="masonry-item col-md-6">
+                                                <div class="bd bgc-white p-20">
+                                                    <div class="layer w-100 mB-10">
+                                                        <h6>Calendar</h6>
+                                                    </div>
+                                                    <div class="layer w-100 mT-15">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                                <div style="position: absolute; right:5%; padding-top: 2%;">
+                                                                    <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='info.html'">
+                                                                        <i class="ti-eye"></i>
+                                                                         View More
+                                                                        
+                                                                    </button>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="layer w-100 mT-15" >
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                                <div style="position: absolute; right:5%; padding-top: 2%;">
+                                                                    <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='info.html'">
+                                                                        <i class="ti-eye"></i>
+                                                                         View More
+                                                                        
+                                                                    </button>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layer w-100 mT-15">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                                <div style="position: absolute; right:5%; padding-top: 2%;">
+                                                                    <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='info.html'">
+                                                                        <i class="ti-eye"></i>
+                                                                         View More
+                                                                        
+                                                                    </button>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="bg-image d-flex justify-content-center align-items-center" style="
+                    <!-- <div class="bg-image d-flex justify-content-center align-items-center" style="
                         background-image: url(images/ocean.jpg);
                         height: 75vh;
                         background-size: cover;
@@ -361,18 +508,11 @@
                         ">
                         <h1 class="text-white" style="font-size: 350%;">Blue Roses</h1>
 
-                    <!-- <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
-                        praesentium labore accusamus sequi, voluptate debitis tenetur in deleniti
-                        possimus modi voluptatum neque maiores dolorem unde? Aut dolorum quod
-                        excepturi fugit.
-                    </p> -->
+                   
                     </div>
                     <div id="mainContent">
         
-                        <!-- <div class="main-content bgc-grey-200"> -->
-                            <!-- <div class="bd bgc-white"> -->
-                        <!-- <div class="backgound"> -->
+                       
                           
                             
                         <div class="layers">
@@ -454,11 +594,7 @@
                                     </div>
                                     
                                 </div>
-                                <!-- <ul class="images">
-                                    <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
-                                    <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
-                                    <li class="img_container"><img src="images/Shipwreck.jpg" width="100%" height="100%"></li>
-                                </ul> -->
+                               
                             </div>
                             <div class="layer w-100">
                                 <div style="position: absolute; right:5%; padding-top: 2%; padding-bottom: 10%;">
@@ -472,10 +608,10 @@
                             </div>
                             
                         </div>
-                        <!-- </div> -->
+                        
 
                         
-                    </div>
+                    </div> -->
 
                 </main>
                 <!-- <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
@@ -493,8 +629,115 @@
         <script src="js/plugins/lg-zoom.umd.js"></script>
 
 
+        <!-- jvectormap plugins -->
+        <!-- <script src="jvectomap/bjornd-jvectormap-1a905c8/" -->
         <script>
+            $(document).ready(function () {
+            // Group states into Areas
+            // var areas = [];
+            // areas[0] = [];
+            // areas[1] = ["PL"];
+            // areas[2] = ["BE","FR","BG","DK","HR","DE","BA","HU","FI","BY","GR","NL","PT","NO","LV","LT","LU","XK","CH","EE","IS","AL","IT","CZ","GB","IE","ES","ME","MD","RO","RS","MK","SK","SI","UA","SE","AT"];
+            // areas[3] = ["CA"];
+        
+            function selectArea(code){
+            var mapObj = $("#map").vectorMap("get", "mapObject");
+            areas.forEach(function(area) {
+                if(area.indexOf(code)>-1) {
+                mapObj.setSelectedRegions(area);
+                return;
+                }
+            });
+            }
+        
+            function clearAll(){
+            var mapObj = $("#map").vectorMap("get", "mapObject");
+            mapObj.clearSelectedRegions();
+            }
+        
+            $("#map").vectorMap({
+            map: "europe_mill",
+            backgroundColor: "#496bf2",
+            borderColor: "#fff",
+            borderOpacity: 0.25,
+            borderWidth: 0,
+            color: "#e6e6e6",
+            zoomOnScroll: true,
+            regionsSelectable: true,
+            regionStyle: {
+                initial: {
+                fill: "#e4ecef"
+                },
+            // markerStyle: { initial: { r: 7, fill: "#F8E23B", "fill-opacity": 1, stroke: "#383f47", "stroke-width": 2, "stroke-opacity": 0.4 } },
+            // markers: [
+            //     { latLng: [21, 78], name: "INDIA : 350" },
+            //     { latLng: [-33, 151], name: "Australia : 250" },
+            //     { latLng: [36.77, -119.41], name: "USA : 250" },
+            //     { latLng: [55.37, -3.41], name: "UK   : 250" },
+            //     { latLng: [25.2, 55.27], name: "UAE : 250" },
+            // ],
+            selected: {
+            fill: "darkseagreen"
+            },
+            series: { regions: [{ values: { US: 298, SA: 200, AU: 760, IN: 200, GB: 120 }, scale: ["#03a9f3", "#02a7f1"], normalizeFunction: "polynomial" }] },
+                                    hoverOpacity: null,
+                                    normalizeFunction: "linear",
+                                    zoomOnScroll: !1,
+                                    scaleColors: ["#b6d6ff", "#005ace"],
+                                    selectedColor: "#c9dfaf",
+                                    selectedRegions: [],
+                                    enableZoom: !1,
+                                    hoverColor: "#fff",
+            },
+            markerStyle: { initial: { r: 7, fill: "#ff0000", "fill-opacity": 1, stroke: "#ffffff", "stroke-width": 2, "stroke-opacity": 0.4 } },
+            markers: [
+                {latLng: [38.249582, 21.729053], name: 'Marina of Patras'},
+                {latLng: [37.943564, 23.638228], name: 'Pireus'},
+                {latLng: [43.620847, 13.503115], name: 'Ancona'},
+                {latLng: [38.701664, -9.155070], name: 'Lisbon'},
+                
+            ],
+            focusOn: {
+                x: 0.5,
+                y: 0.65,
+                scale: 2,
+                // animate: true
+            },
+            panOnDrag: true,
+            onRegionClick: function(e, code){
+                clearAll();
+                selectArea(code);
+                return false;
+            },
+            zoomMin: 1.5,
+            onMarkerClick: function(event, index){
+                console.log('marker-click', index);
+                window.location.href='fullpage.html';
+            },
+            });
+        
             
+                                        
+                                        
+                                        
+                                        
+                                        
+        
+            (function () {
+            // Collect the rest of the World
+            var mapObj = $("#map").vectorMap("get", "mapObject");
+            var states = areas.join(",");
+            for(var code in mapObj.regions) {
+                if(mapObj.regions.hasOwnProperty(code)) {
+                if(states.indexOf(code) == -1) {
+                    areas[0].push(code);
+                }
+                }
+            }
+            })();
+        
+        });
+
 
         </script>
     </body>
