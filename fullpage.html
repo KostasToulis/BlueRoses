@@ -254,9 +254,8 @@
         }
 
         .gallery-img {
-            height: 300px; 
-            max-width: 450px;
-            /* border-radius: 1%; */
+            /* height: auto; */
+            max-width: 32%;
             margin: 0.2%;
             margin-right: -0.1%;
         }
@@ -302,12 +301,8 @@
     <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
     <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
 
-
-    <!-- OR -->
-
-   <!-- <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />-->
-
-
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    
     </head>
     <body class="app">
         <div id="loader"><div class="spinner"></div></div>
@@ -390,7 +385,7 @@
                         <div id="info">
                             <div class="container-fluid">
                                 
-                                <div class="row">
+                                <div class="bd bgc-white">
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-6" style="font-size: large;">
@@ -400,7 +395,7 @@
                                                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
                                                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" style="padding-top: 5%;">
                                                 <img src="images/Main_Banner.jpg" class="img">
                                             </div>
                                             
@@ -431,47 +426,59 @@
                         
 
                         <br>
+                        <div class="bd bgc-white">
+                            <div id="gallery">
+                                <div class="masonry-item col-md-12" style="padding-top: 2%;">
+                                    <h2>Gallery</h2>
+                                    <div id="lightgallery">
+                                        
+                                        <a href="images/Main_Banner.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/Main_Banner.jpg" class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
+                                        </a>
+                                    
+                                    
+                                        <a href="images/Shipwreck.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/Shipwreck.jpg" class= "gallery-img">
+                                        </a>
+                                        
+                                        <!-- <div class="d-inline col-md-4">
+                                            <a href="images/shipwreck_sm.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                                <img src="images/shipwreck_sm.jpg" class= "gallery-img">
+                                            </a>
+                                        </div> -->
 
-                        <div id="gallery">
-                            <div class="masonry-item col-md-12" style="padding-top: 5%;">
-                                <h2>Gallery</h2>
-                                <div id="lightgallery">
-                                    <a href="images/Main_Banner.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/Main_Banner.jpg" class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
-                                    </a>
-                                    <a href="images/Shipwreck.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/Shipwreck.jpg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/shipwreck_sm.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/shipwreck_sm.jpg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/robot.jpeg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/robot.jpeg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/shipwreck_md.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/shipwreck_md.jpg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/seafloor3.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/seafloor3.jpg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/seafloor2.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/seafloor2.jpg" class= "gallery-img">
-                                    </a>
-                                    <a href="images/seafloor.jfif" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                        <img src="images/seafloor.jfif" class= "gallery-img">
-                                    </a>
+                                        <a href="images/robot.jpeg" 
+                                            data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+                                            
+                                        >
+                                            <img src="images/robot.jpeg" class= "gallery-img">
+                                        </a>
+                                        <a href="images/shipwreck_md.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/shipwreck_md.jpg" class= "gallery-img">
+                                        </a>
+                                        <a href="images/seafloor3.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/seafloor3.jpg" class= "gallery-img">
+                                        </a>
+                                        <a href="images/seafloor2.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/seafloor2.jpg" class= "gallery-img">
+                                        </a>
+                                        <a href="images/seafloor.jfif" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                            <img src="images/seafloor.jfif" class= "gallery-img">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <br>
-
-                        <div id="video">
-                            <h2 style="padding-top: 5%;">Video</h2>
-                                <div class="embed-responsive embed-responsive-16by9" >
-                                    <iframe height="50%;" width="50%;" class="embed-responsive-item" src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" allowfullscreen></iframe>
-                                </div>
+                        <div class="bd bgc-white">
+                            <div id="video">
+                                <h2 style="padding: 1.5%;">Video</h2>
+                                    <div class="embed-responsive embed-responsive-16by9" style="padding:2%;">
+                                        <iframe height="50%;" width="50%;" class="embed-responsive-item" src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" allowfullscreen ></iframe>
+                                    </div>
+                            </div>
                         </div>
                         
                         
@@ -501,6 +508,19 @@
                 speed: 500,
                 // ... other settings
             });
+        </script>
+        
+        <script>
+            $('.gallery-img').each(function(){
+
+                var $img = $(this),
+                    imgWidth = $img.width(),
+                    imgHeight = $img.height();
+
+                
+                    $img.height(imgWidth * 0.6);
+                
+                });
         </script>
         
     </body>
