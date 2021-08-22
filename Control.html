@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <title>Blue Roses</title>
+    <style>
+        #loader {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000;
+        }
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out;
+        }
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0;
+            }
+        }
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        .header-container,
+        .sidebar-logo {
+            /* background-color:rgb(0, 0, 85) */
+            background: linear-gradient(to bottom, rgb(0, 0, 85) 0%, rgb(53, 53, 134) 100%);
+            margin-bottom: 0;
+        }
+        .sidebar-menu {
+            background-color: rgb(53, 53, 134);
+        }
+
+        /* .main-content {
+            background-image: url(images/seafloor3.jpg); 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-size: cover; 
+        } */
+       
+
+        .showcase_img {
+            height: 90%; 
+            width: 80%; 
+            border-radius: 3%;
+        }
+
+        ul.images {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: auto; 
+            /* width:10em;
+            height: 20em;
+            overflow: auto;
+            white-space: nowrap;
+            /* display: inline-block; */
+        }
+        ul.images li {
+            flex: 0 0 auto;
+            padding: 1em;
+            width: 45em;
+            height: 30em;
+        }
+
+        .img_banner {
+            width:100%;
+            height: 100%;
+
+        }
+
+        .ti-menu {
+            color: white;
+        }
+        .search-icon {
+            color: white;
+        }
+        .title {
+            color: white;
+        }
+        .lh1 {
+            color: white;
+        }
+
+        /* Map CSS */
+        .map-container{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+        /* Map CSS */
+
+        /*Gallery css*/
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        img {
+        vertical-align: middle;
+        }
+
+        /* Position the image container (needed to position the left and right arrows) */
+        .container {
+        position: relative;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+        display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+        cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+        }
+
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+        float: left;
+        width: 20%;
+        }
+
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+        opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+        opacity: 1;
+        }
+
+
+        .backgound {
+           
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: contain;
+            padding-top: -2%;
+            margin-top: -2%;
+            padding-left: -2%;
+            margin-left: -2%;
+            background: #d1d3ee;
+            background-image: url(images/jellyfish3.jpg); /* fallback */
+            background-image: url(images/jellyfish3.jpg), linear-gradient(#000877, #d1d3ee); /* W3C */
+            height: 500px;
+            width: 1500px;
+        }
+
+        .title-name {
+            text-align: center;
+            font-size: 6em;
+            color: cornsilk;
+            padding-top: 5%;
+        }
+
+        #map {
+            height: 630px;
+            min-height: 100px;
+            max-width: 1000px;
+            
+        }
+
+        .videoPlayer {
+            height:auto;
+            width: 95%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .videoContainer {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .videoOverlays {
+            position:absolute;
+            float:left;
+            width:95%;
+            min-height:auto;
+            
+            /* z-index:300000; */
+            z-index:100;
+            
+        }
+        
+        #leftT {
+            position: absolute;
+            left: 10%;
+            padding-left: 5%;
+            /* min-height: 150px; */
+            display: inline;
+            margin-top: 1%;    
+            /* width: 15vw;
+            height: 15vw; */
+        }
+
+        #rightT {
+            position: absolute;
+            right: 20%;
+            display: inline;  
+            /* margin-top: 5%;      */
+            margin-top: 1%;
+        }
+
+        /* #leftB {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            padding-left: 5%;
+            width: 10vw;
+            height: 5vw;
+        } */
+
+        #depth {
+            display: inline;  
+            padding: 2%;  
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlayComponent {
+            background-color:rgb(87, 50, 255, 0.5);
+            color: rgb(255, 255, 255);
+            border-radius: 10%;
+            font-size: 120%;
+            margin: -2%;
+            align-items: center;
+            justify-content: center;
+            /* width: 10vw;
+            height: 5vw; */
+        }
+
+        .position {
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+    <link href="css/themify-icons.css" rel="stylesheet">
+
+    <!-- lightgallery plugins -->
+    <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
+
+
+    <script src="jvectomap/tests/assets/jquery-1.8.2.js"></script>
+
+    <script src="Joystick-master/joy.js"></script>
+
+    <!-- jvectormap plugins -->
+    <!-- <link rel="stylesheet" href="jvectomap/jquery-jvectormap.css" type="text/css" media="screen"/>
+
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
+  <script src="https://jvectormap.com/js/jquery-jvectormap-europe-mill.js"></script> -->
+
+
+    <!-- OR -->
+
+   <!-- <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />-->
+
+
+    </head>
+    <body class="app">
+        <div id="loader"><div class="spinner"></div></div>
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                setTimeout(() => {
+                    loader.classList.add("fadeOut");
+                }, 300);
+            });
+        </script>
+        <div>
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer peer-greed">
+                                <a class="sidebar-link td-n" href="SplashScreen.html">
+                                    <div class="peers ai-c fxw-nw">
+                                        <div class="peer">
+                                            <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
+                                        </div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="peer">
+                                <div class="mobile-toggle sidebar-toggle">
+                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu scrollable pos-r">
+                        <li class="nav-item mT-30 active">
+                            <a class="sidebar-link" href="Marinas.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-anchor"></i> </span><span class="title">Marinas</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Marinas.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-flag"></i> </span><span class="title">Cultural Sites</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="video.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-camera"></i> </span><span class="title">Live</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-container">
+                <div class="header navbar">
+                    <div class="header-container">
+                        <ul class="nav-left">
+                            <li>
+                                <a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
+                            </li>
+                            <li class="search-box">
+                                <a class="search-toggle no-pdd-right" href="javascript:void(0);"><i class="search-icon ti-search pdd-right-10"></i> <i class="search-icon-close ti-close pdd-right-10"></i></a>
+                            </li>
+                            <li class="search-input"><input class="form-control" type="text" placeholder="Search..." /></li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="notifications dropdown">
+                                <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <main class="main-content bgc-grey-200">
+                    <div class="videoContainer">
+                        <!-- <video controls preload="metadata" autoplay webkit-playsinline="webkit-playsinline" class="videoPlayer">
+                            <source src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" type="video/mp4" />
+                        </video> -->
+                        <div class="videoOverlays">
+                            <div class="row">
+                                <div id='leftT'>
+                                
+                                    <div class='overlayComponent'>
+                                        <div style="justify-content: center; align-items: center;">
+                                            DEPTH (m)
+                                        
+                                            
+                                        </div>
+                                        <div id='depth'>
+                                            2.5 
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+    
+                                <div id='rightT'>
+                                    <div class='overlayComponent'>
+                                        <div class='position'>
+                                            POSITION
+                                            <div>
+                                                <div id="lat"> 37.875701 N</div>
+                                                <div id="lng"> 43.891026 W</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div id="leftB">
+                                    <!-- <div class= -->
+                                    <div id="google-map"></div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <video id="player" controls src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" autoplay loop class="videoPlayer"></video>
+                        <!-- <div class="map-container">
+                            <div id="google-map"></div>
+                        </div> -->
+                        <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                            <h6 class="c-grey-900 mB-20">Google Maps</h6>
+                            <div id="google-map" style="padding-bottom: 75%;"></div>
+                        </div>
+                        
+                    </div>
+                    
+
+
+                </main>
+                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600" style="padding-top: 10%;">
+                    <span>Follow us on social media!</span>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript" src="vendor.js"></script>
+        <script type="text/javascript" src="bundle.js"></script>
+      
+    </body>
+</html>
