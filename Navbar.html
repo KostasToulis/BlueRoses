@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <title>Blue Roses</title>
+    <style>
+        #loader {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000;
+        }
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out;
+        }
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0;
+            }
+        }
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        .header-container,
+        .sidebar-logo {
+            /* background-color:rgb(0, 0, 85) */
+            background: linear-gradient(to bottom, rgb(0, 0, 85) 0%, rgb(53, 53, 134) 100%);
+            margin-bottom: 0;
+        }
+        .sidebar-menu {
+            background-color: rgb(53, 53, 134);
+        }
+
+        ul.images {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: auto; 
+            /* width:10em;
+            height: 20em;
+            overflow: auto;
+            white-space: nowrap;
+            /* display: inline-block; */
+        }
+        ul.images li {
+            flex: 0 0 auto;
+            padding: 1em;
+            width: 45em;
+            height: 30em;
+        }
+
+        .ti-menu {
+            color: white;
+        }
+        .search-icon {
+            color: white;
+        }
+        .title {
+            color: white;
+        }
+        .lh1 {
+            color: white;
+        }
+
+        
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <link href="css/themify-icons.css" rel="stylesheet">
+
+   
+
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+ 
+
+
+    </head>
+    <body class="app">
+        
+        <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="4f48QAjt"></script> -->
+        <div class="header navbar">
+            <div class="header-container">
+                <ul class="nav-left">
+                    <li>
+                        <a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
+                    </li>
+                    <li class="search-box">
+                        <a class="search-toggle no-pdd-right" href="javascript:void(0);"><i class="search-icon ti-search pdd-right-10"></i> <i class="search-icon-close ti-close pdd-right-10"></i></a>
+                    </li>
+                    <li class="search-input"><input class="form-control" type="text" placeholder="Search..." /></li>
+                </ul>
+                <ul class="nav-right">
+                    <li class="notifications dropdown">
+                        <span class="counter bgc-red">Feed</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"  style="color:#fff"></i></a>
+                        <ul class="dropdown-menu">
+                            <!-- <li class="pX-20 pY-15 bdB"><i class="c-blue-grey-200 ti-bell"></i> <span class="fsz-sm fw-600 c-grey-900">Feed</span>  -->
+                                <div id='feed'>
+                                    <div id="fb-root">
+                                        <iframe 
+                                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBlueRosesProject&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                            width="340" 
+                                            height="500" 
+                                            style="border:none;overflow:hidden" 
+                                            scrolling="no" 
+                                            frameborder="0" 
+                                            allowfullscreen="true" 
+                                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
+                                        <!-- <div 
+                                            class="fb-page" 
+                                            data-href="https://www.facebook.com/BlueRosesProject"
+                                            data-tabs="timeline" 
+                                            data-width="" 
+                                            data-height="" 
+                                            data-small-header="true" 
+                                            data-adapt-container-width="true" 
+                                            data-hide-cover="false" 
+                                            data-show-facepile="false">
+                                                <blockquote cite="https://www.facebook.com/BlueRosesProject" class="fb-xfbml-parse-ignore">
+                                                </blockquote>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
+                            <i class="ti-rss-alt" style="color: #fff;"></i>
+                            <ul class="dropdown-menu">
+                                <li class="pX-20 pY-15 bdB"><i class="c-blue-grey-200 ti-key"></i> <span class="fsz-sm fw-600 c-grey-900" style="display: inline;">Authenticated User Login</span></li>
+                                <!-- <div class="form-group-row"><input type="password" class="form-control" placeholder="Password"></div> -->
+                            </ul>
+                        </a>
+                        <!-- <i class="ti-user" style="color: #fff;"></i> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="vendor.js"></script>
+        <script type="text/javascript" src="bundle.js"></script>
+
+    </body>
+</html>

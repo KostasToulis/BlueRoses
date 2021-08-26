@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <title>Blue Roses</title>
+    <style>
+        #loader {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000;
+        }
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out;
+        }
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0;
+            }
+        }
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        .header-container,
+        .sidebar-logo {
+            /* background-color:rgb(0, 0, 85) */
+            background: linear-gradient(to bottom, rgb(0, 0, 85) 0%, rgb(53, 53, 134) 100%);
+            margin-bottom: 0;
+        }
+        .sidebar-menu {
+            background-color: rgb(53, 53, 134);
+        }
+
+        ul.images {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: auto; 
+            /* width:10em;
+            height: 20em;
+            overflow: auto;
+            white-space: nowrap;
+            /* display: inline-block; */
+        }
+        ul.images li {
+            flex: 0 0 auto;
+            padding: 1em;
+            width: 45em;
+            height: 30em;
+        }
+
+        .ti-menu {
+            color: white;
+        }
+        .search-icon {
+            color: white;
+        }
+        .title {
+            color: white;
+        }
+        .lh1 {
+            color: white;
+        }
+
+        
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+    <link href="css/themify-icons.css" rel="stylesheet">
+
+
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+
+
+    <!-- OR -->
+
+   <!-- <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />-->
+
+
+    </head>
+    <body class="app">
+        <div>
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer peer-greed">
+                                <a class="sidebar-link td-n" href="SplashScreen.html">
+                                    <div class="peers ai-c fxw-nw">
+                                        <div class="peer">
+                                            <div class="logo"><img src="images/Blue-Roses-Logo2.png" alt="" /></div>
+                                        </div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="peer">
+                                <div class="mobile-toggle sidebar-toggle">
+                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu scrollable pos-r" style="list-style-type: none;">
+                        <li class="nav-item mT-30 active">
+                            <a class="sidebar-link" href="Marinas.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-anchor"></i> </span><span class="title">Marinas</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Marinas.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-flag"></i> </span><span class="title">Cultural Sites</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="video.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-video-camera"></i> </span><span class="title">Live</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Project.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-archive"></i> </span><span class="title">BlueRoSES Project</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript" src="vendor.js"></script>
+        <script type="text/javascript" src="bundle.js"></script>
+
+    </body>
+</html>

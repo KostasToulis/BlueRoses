@@ -266,6 +266,23 @@
             
         }
 
+        .fb-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 100%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+            /* padding-top: 33.4%; */
+        }
+
+        .responsive-iframe {
+            position: absolute;
+            top: 2%;
+            left: 3%;
+            /* bottom: 0;
+            right: 0; */
+            width: 100%;
+            height: 100%;
+        }
         /* #main-content {
             padding-top: -10%;
             margin-top: -10%;
@@ -309,49 +326,16 @@
                 }, 300);
             });
         </script>
+        <script>
+            $(function(){
+                $("#sidebar").load("Sidebar.html"); 
+                $("#navbar").load("Navbar.html"); 
+                $("#footer").load("Footer.html");
+            });
+        </script>
         <div>
-            <div class="sidebar">
-                <div class="sidebar-inner">
-                    <div class="sidebar-logo">
-                        <div class="peers ai-c fxw-nw">
-                            <div class="peer peer-greed">
-                                <a class="sidebar-link td-n" href="SplashScreen.html">
-                                    <div class="peers ai-c fxw-nw">
-                                        <div class="peer">
-                                            <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
-                                        </div>
-                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="peer">
-                                <div class="mobile-toggle sidebar-toggle">
-                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="sidebar-menu scrollable pos-r">
-                        <li class="nav-item mT-30 active">
-                            <a class="sidebar-link" href="Marinas.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-anchor"></i> </span><span class="title">Marinas</span>
-                                <hr color=white style="color: white">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="sidebar-link" href="Marinas.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-flag"></i> </span><span class="title">Cultural Sites</span>
-                                <hr color=white style="color: white">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="sidebar-link" href="video.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-camera"></i> </span><span class="title">Live</span>
-                                <hr color=white style="color: white">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div id="sidebar">
+                
             </div>
             <div class="page-container">
                 <div class="header navbar">
@@ -367,10 +351,24 @@
                         </ul>
                         <ul class="nav-right">
                             <li class="notifications dropdown">
-                                <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                                <span class="counter bgc-red">Live</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"  style="color:#fff"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                                    <li class="pX-20 pY-15 bdB"><i class="c-blue-grey-200 ti-bell"></i> <span class="fsz-sm fw-600 c-grey-900">Feed</span> 
+                                        <div id='feed'>
+                                            <div>Livestream</div>
+                                        </div>
+                                    </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
+                                    <i class="ti-key" style="color: #fff;"></i>
+                                    <ul class="dropdown-menu">
+                                        <li class="pX-20 pY-15 bdB"><i class="c-blue-grey-200 ti-key"></i> <span class="fsz-sm fw-600 c-grey-900" style="display: inline;">Authenticated User Login</span></li>
+                                        <!-- <div class="form-group-row"><input type="password" class="form-control" placeholder="Password"></div> -->
+                                    </ul>
+                                </a>
+                                
                             </li>
                         </ul>
                     </div>
@@ -381,31 +379,19 @@
                     <div id="mainContent">
                         <div class="row gap-20 masonry pos-r">
                             <div class="masonry-sizer col-md-6"></div>
-                            
-                            
+                    
                             <div class="masonry-item col-12">
                                 <div style="text-align: center; padding-top: 0%; padding-bottom: 0%;">
                                     <h1 style="font-size: xxx-large; color:  rgb(11, 11, 122);">Blue Roses</h1>
-                                    <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3> -->
                                 </div>
                                 <div class="bd bgc-white">
                                     <div class="peers fxw-nw@lg+ ai-s">
                                         <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
                                             <div class="layers">
                                                 <div class="layer w-100 mB-10"><h4 class="lh-1" style="margin-left: 10%;">Mapped Sites</h6></div>
-                                                <div class="layer w-100">
-                                                    <!--Google map-->
-                                                    <!-- <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
-                                                      <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                                                        style="border:0" allowfullscreen></iframe>
-                                                    </div> -->
-                                                    
+                                                <div class="layer w-100"> 
                                                     <div id="map" style="margin: auto;"></div>
-                                                    
-                                                    
-                                                    <!-- <div class="vector-map" data-toggle="vectormap" data-map="world_mill"></div> -->
-                                                    <!--Google Maps-->
-                                                </div>   <!-- <div id="world-map-marker"></div> -->
+                                                </div>   
                                             </div>
                                             
                                             <div class="masonry-item col-md-6">
@@ -532,6 +518,31 @@
                                                     
                                                 </div>
                                             </div>
+
+                                            <div class="masonry-item col-md-6">
+                                                <div class="bd bgc-white p-20">
+                                                    <div class="layers">
+                                                        <div class="layer w-100 mB-10">
+                                                            <h6>Facebook Feed</h6>
+                                                        </div>
+                                                        <div class="layer w-100">
+                                                            <div class="fb-container" >
+                                                                <iframe 
+                                                                    class="responsive-iframe"
+                                                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBlueRosesProject&tabs=timeline&width=550&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                                    width="600"
+                                                                    height="600"
+                                                                    style="border:none;overflow:hidden" 
+                                                                    scrolling="no" 
+                                                                    frameborder="0" 
+                                                                    allowfullscreen="true" 
+                                                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                                                </iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             
                                             
                                         </div>
@@ -544,9 +555,7 @@
 
 
                 </main>
-                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600" style="padding-top: 10%;">
-                    <span>Follow us on social media!</span>
-                </footer>
+                <div id="footer"></div>
             </div>
         </div>
         <script type="text/javascript" src="vendor.js"></script>
@@ -563,13 +572,7 @@
         <!-- <script src="jvectomap/bjornd-jvectormap-1a905c8/" -->
         <script>
             $(document).ready(function () {
-            // Group states into Areas
-            // var areas = [];
-            // areas[0] = [];
-            // areas[1] = ["PL"];
-            // areas[2] = ["BE","FR","BG","DK","HR","DE","BA","HU","FI","BY","GR","NL","PT","NO","LV","LT","LU","XK","CH","EE","IS","AL","IT","CZ","GB","IE","ES","ME","MD","RO","RS","MK","SK","SI","UA","SE","AT"];
-            // areas[3] = ["CA"];
-        
+            
             function selectArea(code){
             var mapObj = $("#map").vectorMap("get", "mapObject");
             areas.forEach(function(area) {
@@ -598,14 +601,7 @@
                 initial: {
                 fill: "#e4ecef"
                 },
-            // markerStyle: { initial: { r: 7, fill: "#F8E23B", "fill-opacity": 1, stroke: "#383f47", "stroke-width": 2, "stroke-opacity": 0.4 } },
-            // markers: [
-            //     { latLng: [21, 78], name: "INDIA : 350" },
-            //     { latLng: [-33, 151], name: "Australia : 250" },
-            //     { latLng: [36.77, -119.41], name: "USA : 250" },
-            //     { latLng: [55.37, -3.41], name: "UK   : 250" },
-            //     { latLng: [25.2, 55.27], name: "UAE : 250" },
-            // ],
+          
             selected: {
             fill: "darkseagreen"
             },
@@ -621,10 +617,9 @@
             },
             markerStyle: { initial: { r: 7, fill: "#ff0000", "fill-opacity": 1, stroke: "#ffffff", "stroke-width": 2, "stroke-opacity": 0.4 } },
             markers: [
-                {latLng: [38.249582, 21.729053], name: 'Marina of Patras'},
-                {latLng: [37.943564, 23.638228], name: 'Pireus'},
-                {latLng: [43.620847, 13.503115], name: 'Ancona'},
-                {latLng: [38.701664, -9.155070], name: 'Lisbon'},
+                {latLng: [43.861656, 10.238474], name: 'Marina di Viareggio'},
+                {latLng: [37.012480, -7.937009], name: 'Algarve'},
+                
                 
             ],
             focusOn: {
