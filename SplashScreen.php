@@ -335,8 +335,54 @@
             });
         </script>
         <div>
-            <div id="sidebar">
-                
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer peer-greed">
+                                <a class="sidebar-link td-n" href="SplashScreen.php">
+                                    <div class="peers ai-c fxw-nw">
+                                        <div class="peer">
+                                            <div class="logo"><img src="images/Blue-Roses-Logo2.png" alt="" /></div>
+                                        </div>
+                                        <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="peer">
+                                <div class="mobile-toggle sidebar-toggle">
+                                    <a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu scrollable pos-r" style="list-style-type: none;">
+                        <li class="nav-item mT-30 active">
+                            <a class="sidebar-link" href="Marinas.php">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-anchor"></i> </span><span class="title">Marinas</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Marinas.php">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-flag"></i> </span><span class="title">Cultural Sites</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="video.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-video-camera"></i> </span><span class="title">Live</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Project.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-archive"></i> </span><span class="title">BlueRoSES Project</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="page-container">
                 <div class="header navbar">
@@ -382,12 +428,13 @@
                     <div id="mainContent">
                         <div class="row gap-20 masonry pos-r">
                             <div class="masonry-sizer col-md-6"></div>
-                    
+                            
                             <div class="masonry-item col-12">
                                 <div class="bd bgc-white">
                                     <div class="peers fxw-nw@lg+ ai-s">
                                         <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
                                             <div class="layers">
+                                                <!-- <h1>Hi</h1> -->
                                                 <div class="layer w-100 mB-10"><h4 class="lh-1" style="margin-left: 10%;">Mapped Sites</h6></div>
                                                 <div class="layer w-100"> 
                                                     <div id="map" style="margin: auto;"></div>
@@ -415,108 +462,71 @@
                                                         <h6>Calendar</h6>
                                                     </div>
                                                     <form action="fullpage.php" method="GET" id="form1">
+
+                                                    <?php 
+                                                        $servername = "localhost";
+                                                        $username = "root";
+                                                        $password = "";
+                            
+                                                        $conn = new mysqli($servername, $username, $password);
+                            
+                                                        if ($conn->connect_error) {
+                                                            die("Connection failed: " . $conn->connect_error);
+                                                        }
+                                                        else {
+                                                            $conn->select_db("bluerosesdb");
+                                                            $sql = "SELECT * FROM site";
+                                                            $result = $conn->query($sql);
+                                                            if ($result->num_rows > 0) {
+                                                                // output data of each row
+                                                                while($row = $result->fetch_assoc()) {
+                                                                    
+                                                    ?>
+
+                                                        <div class="layer w-100 mT-15">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <img src=<?php echo $row['thumbnail']?> style="height: 100%; width: 100%; border: 5%;">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div>
+                                                                        <h6>
+                                                                            Name: 
+                                                                            <div>
+                                                                                <?php echo $row['name']?>
+                                                                            </div>
+                                                                            
+                                                                        </h6>    
+                                                                        <div  class="d-inline">
+                                                                            Date: 01/01/2021
+                                                                            <!-- echo $row['date'] -->
+                                                                        </div>
+                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
+                                                                            <button type="submit" class="btn cur-p btn-outline-dark" name="marina_button" value="<?php echo $row['name']?>" form="form1">
+                                                                                <i class="ti-eye"></i>
+                                                                                    View More
+                                                                                
+                                                                            </button>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                  
+                                                                        
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    
+                                                    <?php
+                                                                }
+                                                            } else {
+                                                                echo "0 results";
+                                                            }
+                                                        }
+                                                    ?>
+    
                                                         
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina di Viareggio
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="submit" class="btn cur-p btn-outline-dark" name="marina_button" value="Marina di Viareggio" form="form1">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
-    
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina Algarve
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="submit" class="btn cur-p btn-outline-dark" name="marina_button" value="Marina Algarve" form="form1">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
-    
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina Name
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='fullpage.html'">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
 
                                                     </form>
                                                     
@@ -563,7 +573,22 @@
 
 
                 </main>
-                <div id="footer"></div>
+                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600" style="padding-top: 10%;">
+                    <p>Follow us on social media!</p>
+                    <div class="row" style="display: flex; justify-content: space-evenly;  margin-left: 12%;">
+                        <a href="https://www.facebook.com/BlueRosesProject"><i class="ti-facebook" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://twitter.com/bluerosesproj"><i class="ti-twitter-alt" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://www.instagram.com/blue_roses_project?utm_medium=copy_link"><i class="ti-instagram" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://www.youtube.com/channel/UCn4wyJN15uMgbkM90XZcjiw"><i class="ti-youtube" style="font-size: 2.5vw;"></i></a>
+                    </div>
+                    
+                    <div style="padding-bottom: 1%;"></div>
+                    <p>Blue RoSES project has received funding from the European Maritime & Fisheries Fund -BlueEconomy - 2018 (2018 Blue Economy call 1217), proposal no. 863619</p>
+                    <div style="padding-top: 1%;">
+                        <img src='images/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
+                    </div>
+                    
+                </footer>
             </div>
         </div>
         <script type="text/javascript" src="vendor.js"></script>
@@ -595,7 +620,12 @@
             var mapObj = $("#map").vectorMap("get", "mapObject");
             mapObj.clearSelectedRegions();
             }
-        
+            
+            var markers = [
+                {latLng: [43.861656, 10.238474], name: 'Marina di Viareggio'},
+                {latLng: [37.012480, -7.937009], name: 'Marina Algarve'},
+            ];
+
             $("#map").vectorMap({
             map: "europe_mill",
             backgroundColor: "#496bf2",
@@ -624,12 +654,7 @@
                                     hoverColor: "#fff",
             },
             markerStyle: { initial: { r: 7, fill: "#ff0000", "fill-opacity": 1, stroke: "#ffffff", "stroke-width": 2, "stroke-opacity": 0.4 } },
-            markers: [
-                {latLng: [43.861656, 10.238474], name: 'Marina di Viareggio'},
-                {latLng: [37.012480, -7.937009], name: 'Marina Algarve'},
-                
-                
-            ],
+            markers: markers,
             focusOn: {
                 x: 0.5,
                 y: 0.65,
@@ -644,8 +669,9 @@
             },
             zoomMin: 1.5,
             onMarkerClick: function(event, index){
-                console.log('marker-click', index);
-                window.location.href='fullpage.html';
+                console.log('marker-click ', markers[index].name);
+                var marina = markers[index].name;
+                window.location.href='fullpage.php?marina_button=' + marina;
             },
             });
         

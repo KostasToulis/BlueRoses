@@ -135,98 +135,6 @@
             margin: 0;
         }
 
-        * {
-        box-sizing: border-box;
-        }
-
-        img {
-        vertical-align: middle;
-        }
-
-        /* Position the image container (needed to position the left and right arrows) */
-        .container {
-        position: relative;
-        }
-
-        /* Hide the images by default */
-        .mySlides {
-        display: none;
-        }
-
-        /* Add a pointer when hovering over the thumbnail images */
-        .cursor {
-        cursor: pointer;
-        }
-
-        /* Next & previous buttons */
-        .prev,
-        .next {
-        cursor: pointer;
-        position: absolute;
-        top: 40%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover,
-        .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-        }
-
-        /* Container for image text */
-        .caption-container {
-        text-align: center;
-        background-color: #222;
-        padding: 2px 16px;
-        color: white;
-        }
-
-        .row:after {
-        content: "";
-        display: table;
-        clear: both;
-        }
-
-        /* Six columns side by side */
-        .column {
-        float: left;
-        width: 20%;
-        }
-
-        /* Add a transparency effect for thumnbail images */
-        .demo {
-        opacity: 0.6;
-        }
-
-        .active,
-        .demo:hover {
-        opacity: 1;
-        }
-
-
         .backgound {
            
             background-repeat: no-repeat;
@@ -267,18 +175,10 @@
         .videoContainer {
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
-        .videoOverlays {
-            position:absolute;
-            float:left;
-            width:95%;
-            min-height:auto;
-            
-            /* z-index:300000; */
-            z-index:100;
-            
-        }
+        
         
         #leftT {
             position: absolute;
@@ -299,20 +199,15 @@
             margin-top: 1%;
         }
 
-        /* #leftB {
-            position: absolute;
-            left: 10%;
-            top: 50%;
-            padding-left: 5%;
-            width: 10vw;
-            height: 5vw;
-        } */
-
-        #depth {
-            display: inline;  
-            padding: 2%;  
-            align-items: center;
-            justify-content: center;
+        .videoOverlays {
+            position:absolute;
+            float:left;
+            width:95%;
+            min-height:auto;
+            
+            /* z-index:300000; */
+            z-index:100;
+            
         }
 
         .overlayComponent {
@@ -323,14 +218,135 @@
             margin: -2%;
             align-items: center;
             justify-content: center;
-            /* width: 10vw;
-            height: 5vw; */
+            display: inline;
+            /* width: 8vw;
+            height: 3vw; */
+            width: fit-content;
+            height: fit-content;
+            min-width: 100px;
+            min-height: 50px;
+            /* margin-left: 10%; */
         }
 
         .position {
             align-items: center;
             justify-content: center;
         }
+
+        .topOverlayCenter {
+            position: absolute;
+            right: 48%;
+            padding-top: 1%;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            z-index:100;
+            /* margin-bottom: -5%; */
+        }
+
+        .topOverlayLeft {
+            position: absolute;
+            left: 5%;
+            padding-top: 1%;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            z-index:100;
+            /* margin-bottom: -5%; */
+        }
+
+        .topOverlayRight {
+            position: absolute;
+            right: 10%;
+            padding-top: 1%;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            z-index:100;
+            width: 10vw;
+            height: 10vw;
+            /* margin-bottom: -5%; */
+        }
+
+        .cameraOverlay {
+            position: absolute;
+            right: 50%;
+            /* padding-top: 1%; */
+            bottom: 7%;
+            /* display: flex; */
+            /* width: 10%;
+            height: auto; */
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            z-index:100;
+            /* margin-bottom: -5%; */
+        }
+
+        /* #depth {
+            text-align: center;
+            padding-top: 6%;
+            font-size: 1.5vw;
+            display: block;
+            width: 100%;
+            padding: 1%;
+        }
+
+        #battery {
+            text-align: center;
+            padding-top: 6%;
+            font-size: 1.2vw;
+            display: block;
+            width: 100%;
+            padding: 1%;
+        }
+
+        #position {
+            text-align: center;
+            padding-top: 6%;
+            font-size: 1.5vw;
+            display: block;
+            width: 100%;
+        } */
+
+        .overlayContent {
+            text-align: center;
+            padding-top: 6%;
+            font-size: 1.2vw;
+            display: block;
+            width: 100%;
+            padding: 1%;
+        }
+
+        .joystick_left {
+            position: absolute;
+            left: 15%;
+            top: 85%;
+            width: 5vw;
+            height: 5vw;
+            z-index: 100;
+        }
+
+        .joystick_right {
+            position: absolute;
+            right: 9%;
+            top: 85%;
+            width: 5vw;
+            height: 5vw;
+            z-index: 100;
+        }
+
+        .joystick_title {
+            /* padding-bottom: 50%; */
+            position: absolute;
+            top: -95%;
+            left: -47%;
+            color: #fff;
+        }
+        
 
     </style>
     <link href="style.css" rel="stylesheet" />
@@ -347,17 +363,11 @@
     <script src="Joystick-master/joy.js"></script>
 
     <!-- jvectormap plugins -->
-    <!-- <link rel="stylesheet" href="jvectomap/jquery-jvectormap.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="jvectomap/jquery-jvectormap.css" type="text/css" media="screen"/>
 
 
-  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="http://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
-  <script src="https://jvectormap.com/js/jquery-jvectormap-europe-mill.js"></script> -->
-
-
-    <!-- OR -->
-
-   <!-- <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />-->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  
 
 
     </head>
@@ -371,16 +381,23 @@
                 }, 300);
             });
         </script>
+        <script>
+            $(function(){
+                $("#sidebar").load("Sidebar.html"); 
+                $("#navbar").load("Navbar.html"); 
+                $("#footer").load("Footer.html");
+            });
+        </script>
         <div>
             <div class="sidebar">
                 <div class="sidebar-inner">
                     <div class="sidebar-logo">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer peer-greed">
-                                <a class="sidebar-link td-n" href="SplashScreen.html">
+                                <a class="sidebar-link td-n" href="SplashScreen.php">
                                     <div class="peers ai-c fxw-nw">
                                         <div class="peer">
-                                            <div class="logo"><img src="assets/static/images/logo.png" alt="" /></div>
+                                            <div class="logo"><img src="images/Blue-Roses-Logo2.png" alt="" /></div>
                                         </div>
                                         <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
                                     </div>
@@ -393,22 +410,28 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="sidebar-menu scrollable pos-r">
+                    <ul class="sidebar-menu scrollable pos-r" style="list-style-type: none;">
                         <li class="nav-item mT-30 active">
-                            <a class="sidebar-link" href="Marinas.html">
+                            <a class="sidebar-link" href="Marinas.php">
                                 <span class="icon-holder"><i class="c-blue-grey-200 ti-anchor"></i> </span><span class="title">Marinas</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="sidebar-link" href="Marinas.html">
+                            <a class="sidebar-link" href="Marinas.php">
                                 <span class="icon-holder"><i class="c-blue-grey-200 ti-flag"></i> </span><span class="title">Cultural Sites</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="sidebar-link" href="video.html">
-                                <span class="icon-holder"><i class="c-blue-grey-200 ti-camera"></i> </span><span class="title">Live</span>
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-video-camera"></i> </span><span class="title">Live</span>
+                                <hr color=white style="color: white">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="sidebar-link" href="Project.html">
+                                <span class="icon-holder"><i class="c-blue-grey-200 ti-archive"></i> </span><span class="title">BlueRoSES Project</span>
                                 <hr color=white style="color: white">
                             </a>
                         </li>
@@ -429,82 +452,470 @@
                         </ul>
                         <ul class="nav-right">
                             <li class="notifications dropdown">
-                                <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                                <span class="counter bgc-red">Live</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"  style="color:#fff"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                                    <li class="pX-20 pY-15 bdB"><i class="c-blue-grey-200 ti-bell"></i> <span class="fsz-sm fw-600 c-grey-900">Feed</span> 
+                                        <div id='feed'>
+                                            <div>Livestream</div>
+                                        </div>
+                                    </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
+                                    <i class="ti-key" style="color: #fff;"></i>
+                                    <ul class="dropdown-menu">
+                                        <a href="AuthenticatedUser.html">
+                                            <li class="pX-20 pY-15 bdB"> <span class="fsz-sm fw-600 c-grey-900" style="display: inline;">Authenticated User Login</span></li>
+                                        </a>
+                                    </ul>
+                                </a>
+                                
                             </li>
                         </ul>
                     </div>
                 </div>
                 
                 <main class="main-content bgc-grey-200">
+                    <div class="bd bgc-white">
+                        <div class="row" style="display: flex; justify-content: space-evenly; margin-right: 10%;">
+                            <div id="ROV"><h5>ROV: </h5></div>
+                            <div id="location"><h5>Location: </h5></div>
+                            <div id="user"><h5>User: </h5></div>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 3%;"></div>
                     <div class="videoContainer">
-                        <!-- <video controls preload="metadata" autoplay webkit-playsinline="webkit-playsinline" class="videoPlayer">
-                            <source src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" type="video/mp4" />
-                        </video> -->
-                        <div class="videoOverlays">
+                        
+                        <div class="topOverlayCenter">
                             <div class="row">
-                                <div id='leftT'>
                                 
-                                    <div class='overlayComponent'>
-                                        <div style="justify-content: center; align-items: center;">
-                                            DEPTH (m)
-                                        
-                                            
+                                <div class="overlayComponent">
+                                    <div class="overlayContent">
+
+                                        Depth:
+
+                                        <div id="depth">
+                                             5m 
                                         </div>
-                                        <div id='depth'>
-                                            2.5 
+
+                                    </div>  
+                                    
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="topOverlayLeft">
+                            <div class="row">
+                                
+                                <div class="overlayComponent">
+                                    
+                                    <div id="battery">
+                                        Battery: 100% 
+                                    </div>
+                                    
+                                </div>
+                            </div>   
+                        </div>
+
+                        <div class="topOverlayRight">
+                            <div class="row">
+                                
+                                <div class="overlayComponent">
+                                    
+                                    <div class="overlayContent">
+                                        Position:
+                                        <div id="latitude">
+                                            41.56231278 N 
+                                        </div>
+                                        <div id="longitude">
+                                            13.21340191 W
                                         </div>
                                         
                                     </div>
                                     
                                 </div>
-    
-                                <div id='rightT'>
-                                    <div class='overlayComponent'>
-                                        <div class='position'>
-                                            POSITION
-                                            <div>
-                                                <div id="lat"> 37.875701 N</div>
-                                                <div id="lng"> 43.891026 W</div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div id="leftB">
-                                    <!-- <div class= -->
-                                    <div id="google-map"></div>
-                                </div>
-                            </div>
-                            
-                            
+                            </div>   
                         </div>
-                        <video id="player" controls src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" autoplay loop class="videoPlayer"></video>
-                        <!-- <div class="map-container">
-                            <div id="google-map"></div>
-                        </div> -->
-                        <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                            <h6 class="c-grey-900 mB-20">Google Maps</h6>
-                            <div id="google-map" style="padding-bottom: 75%;"></div>
+
+                        <video id="player" controls src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" autoplay loop class="videoPlayer">
+                            
+                        </video>
+                        
+                        <div class="cameraOverlay" id="camera">
+                            <i class="ti-camera" icon_bg="rgb(87, 50, 255, 0.5)" style="color: rgb(255,255,255,0.7); font-size: 250%;"></i>
+                        </div>
+                        <div class="joystick_left">
+                            <div class="joystick_title">Frontal Axis</div>
+                            <div id="joystick_left"></div>
+                        </div>  
+
+                        <div class="joystick_right">
+                            <div class="joystick_title">Vertical Axis</div>
+                            <div id="joystick_right"></div>
                         </div>
                         
+                        <!-- <div class="zone static active" style="position: relative;  min-width: 200px; z-index: 12;" ><h1></h1></div> -->
                     </div>
+                    <!-- <div class="outer-container">
+                        <div class="inner-container">
+                            <div class="video-overlay">Depth: </div>
+                            <video id="player" controls src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" autoplay loop class="videoPlayer">
+                            
+                            </video>
+                        </div>
+                    </div> -->
                     
 
 
                 </main>
                 <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600" style="padding-top: 10%;">
-                    <span>Follow us on social media!</span>
+                    <p>Follow us on social media!</p>
+                    <div class="row" style="display: flex; justify-content: space-evenly;  margin-left: 12%;">
+                        <a href="https://www.facebook.com/BlueRosesProject"><i class="ti-facebook" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://twitter.com/bluerosesproj"><i class="ti-twitter-alt" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://www.instagram.com/blue_roses_project?utm_medium=copy_link"><i class="ti-instagram" style="font-size: 2.5vw;"></i></a>
+                        <a href="https://www.youtube.com/channel/UCn4wyJN15uMgbkM90XZcjiw"><i class="ti-youtube" style="font-size: 2.5vw;"></i></a>
+                    </div>
+                    
+                    <div style="padding-bottom: 1%;"></div>
+                    <p>Blue RoSES project has received funding from the European Maritime & Fisheries Fund -BlueEconomy - 2018 (2018 Blue Economy call 1217), proposal no. 863619</p>
+                    <div style="padding-top: 1%;">
+                        <img src='images/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
+                    </div>
+                    
                 </footer>
             </div>
         </div>
         <script type="text/javascript" src="vendor.js"></script>
         <script type="text/javascript" src="bundle.js"></script>
+        <script type="text/javascript" src="nipplejs.js"></script>
+
+        <script>
+            var options = {
+                zone: document.getElementById('joystick_left'),
+                color: "#ffffff",
+                mode: "static",
+            };
+            var manager = nipplejs.create(options);
+
+        </script>
+
+        <script>
+            var options = {
+                zone: document.getElementById('joystick_right'),
+                color: "#ffffff",
+                mode: "static",
+            };
+            var manager = nipplejs.create(options);
+
+        </script>
+
+        <script>
+            document.getElementById("camera").onclick = function() {
+                console.log("camera")
+            }
+        </script>
+
+<script>
+    
+    
+
+
+    // /*Από εδώ */
+    // var s = function(sel) {
+    // return document.querySelector(sel);
+    // };
+    // var sId = function(sel) {
+    // return document.getElementById(sel);
+    // };
+    // var removeClass = function(el, clss) {
+    // //   el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
+    // }
+    // var joysticks = {
+    // static: {
+    // zone: s('.zone.static'),
+    // mode: 'static',
+    // position: {
+    // left: '50%',
+    // top: '50%'
+    // },
+    // color: 'red',
+    // restOpacity: 1,
+    // }
+    // };
+    // var joystick;
+
+
+    // // Get debug elements and map them
+    // var elDebug = sId('debug');
+    // var elDump = elDebug.querySelector('.dump');
+    // var els = {
+    // position: {
+    // x: elDebug.querySelector('.position .x .data'),
+    // y: elDebug.querySelector('.position .y .data')
+    // },
+    // force: elDebug.querySelector('.force .data'),
+    // pressure: elDebug.querySelector('.pressure .data'),
+    // distance: elDebug.querySelector('.distance .data'),
+    // angle: {
+    // radian: elDebug.querySelector('.angle .radian .data'),
+    // degree: elDebug.querySelector('.angle .degree .data')
+    // },
+    // direction: {
+    // x: elDebug.querySelector('.direction .x .data'),
+    // y: elDebug.querySelector('.direction .y .data'),
+    // angle: elDebug.querySelector('.direction .angle .data')
+    // }
+    // };//console.log(els);
+
+    // var timeoutCreate;
+
+    // function createThrottle (evt) {
+    // clearTimeout(timeoutCreate);
+    // timeoutCreate = setTimeout(() => {
+    // createNipple(evt);
+    // }, 100);
+    // }
+
+    // //sId('buttons').onclick = sId('buttons').ontouchend = createThrottle;
+
+    // createNipple('static');
+
+    // function bindNipple() {
+    // joystick.on('start end', function(evt, data) {//console.log(data);
+    // dump(evt.type);
+    // debug(data);
+    // }).on('move', function(evt, data) {
+    // debug(data);
+    // }).on('dir:up plain:up dir:left plain:left dir:down ' +
+    // 'plain:down dir:right plain:right',
+    // function(evt, data) {
+    // dump(evt.type);
+    // }
+    // ).on('pressure', function(evt, data) {
+    // debug({
+    // pressure: data
+    // });
+    // });
+    // }
+
+    // function createNipple(evt) {
+    // var type = typeof evt === 'string' ?
+    // evt : evt.target.getAttribute('data-type');
+    // if (joystick) {
+    // joystick.destroy();
+    // }
+    // //removeClass(s('.zone.active'), 'active');
+    // //removeClass(s('.button.active'), 'active');
+    // //removeClass(s('.highlight.active'), 'active');
+    // //s('.highlight.' + type).className += ' active';
+    // //s('.button.' + type).className += ' active';
+    // //s('.zone.' + type).className += ' active';
+    // joystick = nipplejs.create(joysticks[type]);
+    // bindNipple();
+    // }
+
+    // // Print data into elements
+    // function debug(obj) {
+    // function parseObj(sub, el) {
+    // for (var i in sub) {
+    // if (typeof sub[i] === 'object' && el) {
+    // parseObj(sub[i], el[i]);
+    // } else if (el && el[i]) {
+    // el[i].innerHTML = sub[i];
+    // }
+    // }
+    // }
+    // setTimeout(function() {
+    // parseObj(obj, els);
+    // }, 0);
+    // }
+
+    // var nbEvents = 0;
+
+    // // Dump data
+    // function dump(evt) {
+    // setTimeout(function() {
+    // if (elDump.children.length > 4) {
+    // elDump.removeChild(elDump.firstChild);
+    // }
+    // var newEvent = document.createElement('div');
+    // //newEvent.innerHTML = '#' + nbEvents + ' : <span class="data">' +      evt + '</span>'; //αυτό εδώ δίνει το dump
+    // elDump.appendChild(newEvent);
+    // nbEvents += 1;
+    // }, 0);
+    // }
+
+    // /*Έως εδώ */
+
+
+
+
+    // /*Από εδώ */
+    // var s = function(sel) {
+    // return document.querySelector(sel);
+    // };
+    // var sId = function(sel) {
+    // return document.getElementById(sel);
+    // };
+    // var removeClass = function(el, clss) {
+    // //   el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
+    // }
+    // var joysticks1 = {
+    // static: {
+    // zone: s('.zone1.static'),
+    // mode: 'static',
+    // position: {
+    // left: '50%',
+    // top: '50%',
+    // // multitouch: true
+    // },
+    // color: 'blue',
+    // restOpacity: 1,
+    // }
+    // };
+    // var joystick1;
+
+
+    // // Get debug elements and map them
+    // var elDebug1 = sId('debug1');
+    // var elDump1 = elDebug1.querySelector('.dump1');
+    // var els1 = {
+    // position: {
+    // x: elDebug1.querySelector('.position1 .x .data'),
+    // y: elDebug1.querySelector('.position1 .y .data')
+    // },
+    // force: elDebug1.querySelector('.force .data'),
+    // pressure: elDebug1.querySelector('.pressure .data'),
+    // distance: elDebug1.querySelector('.distance .data'),
+    // angle: {
+    // radian: elDebug1.querySelector('.angle .radian .data'),
+    // degree: elDebug1.querySelector('.angle .degree .data')
+    // },
+    // direction: {
+    // x: elDebug1.querySelector('.direction .x .data'),
+    // y: elDebug1.querySelector('.direction .y .data'),
+    // angle: elDebug1.querySelector('.direction .angle .data')
+    // }
+    // };
+
+    // var timeoutCreate1;
+
+    // function createThrottle1 (evt1) {
+    // clearTimeout(timeoutCreate1);
+    // timeoutCreate1 = setTimeout(() => {
+    // createNipple1(evt1);
+    // }, 100);
+    // }
+
+    // //sId('buttons').onclick = sId('buttons').ontouchend = createThrottle;
+
+    // createNipple1('static');
+
+    // function bindNipple1() {
+    // joystick1.on('start end', function(evt1, data) { 
+    // dump1(evt1.type);
+    // debug1(data);
+    // }).on('move', function(evt1, data) {
+    // debug1(data);
+    // }).on('dir:up plain:up dir:left plain:left dir:down ' +
+    // 'plain:down dir:right plain:right',
+    // function(evt1, data) {
+    // dump1(evt1.type);
+    // }
+    // ).on('pressure1', function(evt1, data) {
+    // debug1({
+    // pressure1: data
+    // });
+    // });
+    // }
+
+    // function createNipple1(evt1) {
+    // var type = typeof evt1 === 'string' ?
+    // evt1 : evt1.target.getAttribute('data-type');
+    // if (joystick1) {
+    // joystick1.destroy();
+    // }
+    // //removeClass(s('.zone.active'), 'active');
+    // //removeClass(s('.button.active'), 'active');
+    // //removeClass(s('.highlight.active'), 'active');
+    // //s('.highlight.' + type).className += ' active';
+    // //s('.button.' + type).className += ' active';
+    // //s('.zone.' + type).className += ' active';
+    // joystick1 = nipplejs.create(joysticks1[type]);//console.log(joysticks1[type]);
+    // bindNipple1();
+    // }
+
+    // // Print data into elements
+    // function debug1(obj1) { //console.log(obj1); //Αν θέλουμε να στέλνουμε distance/force πρέπει να μπει στην function :  function debug1(obj1)... Πιθανόν η dump1 και η debug1 να πρέπει να γίνει μια function (εκτός αν υπάρχει ξεχωριστός ρυθμιστής που δεν εξαρτάται από την ευαισθησία στο joystick)
+    // function parseObj1(sub1, el1) {
+    // for (var ii in sub1) {
+    // if (typeof sub1[ii] === 'object' && el1) {
+    // parseObj1(sub1[ii], el1[ii]);
+    // } else if (el1 && el1[ii]) {
+    // el1[ii].innerHTML = sub1[ii];
+    // }
+    // }
+    // }
+    // setTimeout(function() {
+    // parseObj1(obj1, els1);//console.log(obj1.distance);//console.log(obj1.force);
+    // }, 0);
+    // }
+
+    // var nbEvents1 = 0;
+
+    // // Dump data
+    // function dump1(evt1) { //console.log(nbEvents1);
+    // setTimeout(function() {
+    // if (elDump1.children.length > 4) {
+    // elDump1.removeChild(elDump1.firstChild);
+    // }
+    // var newEvent1 = document.createElement('div');
+    // //newEvent1.innerHTML = '#' + nbEvents1 + ' : <span class="data">' +    evt1 + '</span>';//αυτό εδώ δίνει το dump
+    // elDump1.appendChild(newEvent1);//console.log(evt1);
+    // //Θέλω dir:right για right
+    // var client = mqtt.connect('mqtt://150.145.4.170:8080'); //console.log(client);//var client = mqtt.connect('mqtt://150.145.4.170:8080');    //mqtt://150.217.8.86:1883   NAVIGO
+    // //mqtt://test.mosquitto.org:8081 περνάει από Chrome(αλλά δεν παίζει στο κινητό)  και mqtt://test.mosquitto.org:8080 περνάει από Firefox(αλλά δεν παίζει στο κινητό)
+    // if(evt1 == "dir:left")
+    // { console.log('left');//console.log("connected flag  "+client.connected);
+    // //console.log(evt1);
+    // client.on('connect', function () {console.log('connected-send  '+client.connected);
+    // client.subscribe('blue-roses/europe/relative/MoveLeft/command', function (err) {console.log(client.subscribe('blue-roses/europe/relative/MoveLeft/command'));
+    // if (!err) {
+    // client.publish('blue-roses/europe/relative/MoveLeft/command', '2');
+    // }
+    // //console.log(err);
+    // console.log(client.subscribe('blue-roses/europe/relative/MoveLeft/command'));
+    // })
+
+    // })
+
+    // client.on('message', function (topic, message) {
+    // // message is Buffer
+    // console.log(message.toString());
+    // client.end();
+    // })
+    // }
+
+    // /*
+    // var client = mqtt.connect('mqtt://150.145.4.170:8080');  //var client = mqtt.connect('mqtt://150.145.4.170:8080');  Bibuli
+    // client.on('connect', function () {console.log("connected flag  "+client.connected);
+    // client.subscribe('blue-roses/europe/position/Heading/command', function (err) {
+    // if (!err) {
+    // client.publish('blue-roses/europe/position/Heading/command', '90.0')
+    // }
+    // console.log(err);
+    // })
+    // */
+    // nbEvents1 += 1;
+    // }, 0);
+    // }
+
+    // /*Έως εδώ */
+
+</script>
+
+<script id='player_embed' src='https://player.cloud.wowza.com/hosted/g9wbfxcp/wowza.js' type='text/javascript'></script>
       
     </body>
 </html>

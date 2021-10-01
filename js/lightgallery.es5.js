@@ -645,7 +645,7 @@ var lightGalleryCoreSettings = {
     mode: 'lg-slide',
     easing: 'ease',
     speed: 400,
-    licenseKey: '0000-0000-000-0000',
+    licenseKey: '1D9E818B-1C714762-89ECA75D-7007B2B7',
     height: '100%',
     width: '100%',
     addClass: '',

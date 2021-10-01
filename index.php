@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php 
+    // @mysql_select_db("bluerosesdb") or die("Cannot select DB!");
+?>
+
 <html>
     <head>
     <meta charset="utf-8" />
@@ -384,6 +389,11 @@
                             <div class="masonry-sizer col-md-6"></div>
                     
                             <div class="masonry-item col-12">
+                                <div style="text-align: center; padding-top: 0%; padding-bottom: 1%;">
+                                    <!-- <h1 style="font-size: xxx-large; color:  rgb(11, 11, 122);">Blue Roses</h1>
+                                     -->
+                                    <img src="images/title-removebg.png" >
+                                </div>
                                 <div class="bd bgc-white">
                                     <div class="peers fxw-nw@lg+ ai-s">
                                         <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
@@ -414,112 +424,107 @@
                                                     <div class="layer w-100 mB-10">
                                                         <h6>Calendar</h6>
                                                     </div>
-                                                    <form action="fullpage.php" method="GET" id="form1">
+                                                    <div class="layer w-100 mT-15">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div>
+                                                                    <h6>
+                                                                        Name: 
+                                                                        <div>
+                                                                            Marina Name
+                                                                        </div>
+                                                                        
+                                                                    </h6>    
+                                                                    <div  class="d-inline">
+                                                                        Date: 01/01/2021
+                                                                    </div>
+                                                                    <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
+                                                                        <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='fullpage.html'">
+                                                                            <i class="ti-eye"></i>
+                                                                                View More
+                                                                            
+                                                                        </button>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                                    
+                                                            </div>
+                                                            
+                                                        </div>
                                                         
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina di Viareggio
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="submit" class="btn cur-p btn-outline-dark" name="marina_button" value="Marina di Viareggio" form="form1">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
-    
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina Algarve
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="submit" class="btn cur-p btn-outline-dark" name="marina_button" value="Marina Algarve" form="form1">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
-    
-                                                        <div class="layer w-100 mT-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div>
-                                                                        <h6>
-                                                                            Name: 
-                                                                            <div>
-                                                                                Marina Name
-                                                                            </div>
-                                                                            
-                                                                        </h6>    
-                                                                        <div  class="d-inline">
-                                                                            Date: 01/01/2021
-                                                                        </div>
-                                                                        <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
-                                                                            <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='fullpage.html'">
-                                                                                <i class="ti-eye"></i>
-                                                                                    View More
-                                                                                
-                                                                            </button>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                        
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                        </div>
+                                                    </div>
 
-                                                    </form>
-                                                    
+                                                    <div class="layer w-100 mT-15">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div>
+                                                                    <h6>
+                                                                        Name: 
+                                                                        <div>
+                                                                            Marina Name
+                                                                        </div>
+                                                                        
+                                                                    </h6>    
+                                                                    <div  class="d-inline">
+                                                                        Date: 01/01/2021
+                                                                    </div>
+                                                                    <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
+                                                                        <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='fullpage.html'">
+                                                                            <i class="ti-eye"></i>
+                                                                                View More
+                                                                            
+                                                                        </button>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                                    
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="layer w-100 mT-15">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img src="images/Main_Banner.jpg" style="height: 100%; width: 100%; border: 5%;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div>
+                                                                    <h6>
+                                                                        Name: 
+                                                                        <div>
+                                                                            Marina Name
+                                                                        </div>
+                                                                        
+                                                                    </h6>    
+                                                                    <div  class="d-inline">
+                                                                        Date: 01/01/2021
+                                                                    </div>
+                                                                    <div class="d-inline" style="position: absolute; right:2%; bottom: 5%; padding-top: 2%;">
+                                                                        <button type="button" class="btn cur-p btn-outline-dark" onclick="location.href='fullpage.html'">
+                                                                            <i class="ti-eye"></i>
+                                                                                View More
+                                                                            
+                                                                        </button>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                                    
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
                                                     
                                                 </div>
                                             </div>
@@ -626,7 +631,7 @@
             markerStyle: { initial: { r: 7, fill: "#ff0000", "fill-opacity": 1, stroke: "#ffffff", "stroke-width": 2, "stroke-opacity": 0.4 } },
             markers: [
                 {latLng: [43.861656, 10.238474], name: 'Marina di Viareggio'},
-                {latLng: [37.012480, -7.937009], name: 'Marina Algarve'},
+                {latLng: [37.012480, -7.937009], name: 'Algarve'},
                 
                 
             ],
