@@ -467,14 +467,16 @@
                                                         $servername = "localhost";
                                                         $username = "root";
                                                         $password = "";
-                            
-                                                        $conn = new mysqli($servername, $username, $password);
+                                                        $db = "bluerosesdb";
+                                                        // echo "trying to connect";
+                                                        $conn = new mysqli($servername, $username, $password, $db);
                             
                                                         if ($conn->connect_error) {
+                                                            echo "FAIL";
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
                                                         else {
-                                                            $conn->select_db("bluerosesdb");
+                                                            // $conn->select_db("bluerosesdb");
                                                             $sql = "SELECT * FROM site";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
@@ -486,7 +488,20 @@
                                                         <div class="layer w-100 mT-15">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <img src=<?php echo $row['thumbnail']?> style="height: 100%; width: 100%; border: 5%;">
+                                                                    <?php
+                                                                    // $photo = scandir($row['img_path']."thumbnail");
+                                                                    // print_r($photo[2]);
+                                                                    $filepath=$row['img_path']."thumbnail"; 
+                                                                    $photos = scandir($filepath);
+                                            
+                                                                    $photo_url = $filepath.'/'.$photos[2];
+                                                                    // echo $photo_url;
+                                                                    ?>
+                                                                    <img src= "
+                                                                    <?php 
+                                                                        echo $photo_url;
+                                                                    ?> "
+                                                                    style="height: 100%; width: 100%; border: 5%;">
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div>

@@ -439,11 +439,8 @@
                                 die("Connection failed: " . $conn->connect_error);
                             }
                             else {
-                                // echo "Connected successfully <br>";
                                 $marina = $_GET["marina_button"];
                                 $marina = str_replace("_", " ", $marina);
-                                // echo $marina;
-                                // echo "<br>";
                                 $conn->select_db("bluerosesdb");
                                 $sql = "SELECT * FROM site WHERE name = '$marina'";
                                 $result = $conn->query($sql);
@@ -463,7 +460,12 @@
                                                                 <?php echo $row['description_a']?>
                                                             </div>
                                                             <div class="col-md-6" style="padding-top: 5%;">
-                                                                <img src=<?php echo $row['thumbnail']?> class="img">
+                                                                <?php
+                                                                    $filepath=$row['img_path']."thumbnail"; 
+                                                                    $photos = scandir($filepath);
+                                                                    $thumb_url = $filepath.'/'.$photos[2];
+                                                                ?>
+                                                                <img src='<?php echo $thumb_url?>' class="img">
                                                             </div>
                                                             
                                                         </div>
@@ -471,12 +473,12 @@
                                                         <div class="row" style="margin-top: 5%; font-size: large;">
                                                             <div class="col-md-6">
                                                                 <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                                                                    <!-- <h6 class="c-grey-900 mB-20">Google Maps</h6> -->
-                                                                    <!-- <div id="google-map" style="padding-bottom: 75%;"></div> -->
-                                                                    <!-- <div class="map-container"> -->
-                                                                        <img src=<?php echo $row['map']?> class="img">
-                                                                    <!-- </div> -->
-                                                                    
+                                                                    <?php 
+                                                                         $filepath=$row['img_path']."map"; 
+                                                                         $photos = scandir($filepath);
+                                                                         $map_url = $filepath.'/'.$photos[2];
+                                                                    ?>
+                                                                    <img src='<?php echo $map_url?>' class="img">                                                                   
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -492,62 +494,41 @@
                                                 </div>
                                             </div>
                                         </div>
-                        <?php
-                                    }
-                                } else {
-                                    echo "0 results";
-                                }
-                             
-                        ?>
+                        
                                         
 
                                         <br>
                                         <div class="bd bgc-white">
+                                            <?php
+                                                // $filepath=$row['img_path']."gallery"; 
+                                                // $photos = scandir($filepath);
+                                                // for ($i=2; $i<count($photos); $i++) {
+                                                //     $photo = $photos[$i];
+                                                //     print_r($photo);
+                                                // }          
+                                            ?>
                                             <div id="gallery">
                                                 <div class="masonry-item col-md-12" style="padding-top: 2%;">
                                                     <h2>Gallery</h2>
                                                     <div id="lightgallery">
 
                                                         <?php
-                                                             
-                                                            $sql = "SELECT * FROM image WHERE site_id = $id AND type = 'gallery'";
-                                                            $result = $conn->query($sql);
-                                                            if ($result->num_rows > 0) {
-                                                                while($row = $result->fetch_assoc()) {
+                                                            $filepath=$row['img_path']."gallery"; 
+                                                            $photos = scandir($filepath);
+                                                            for ($i=2; $i<count($photos); $i++) {
+                                                                $photo = $filepath.'/'.$photos[$i];
+                                                            
                                                         ?>
                                                         
-                                                            <a href=<?php echo $row['url'] ?> data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                                <img src=<?php echo $row['url'] ?> class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
+                                                            <a href=<?php echo $photo ?> data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                                                <img src='<?php echo $photo ?>' class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
                                                             </a>
-                                                    
-                                                    
-                                                        <!-- <a href="images/Shipwreck.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                            <img src="images/Shipwreck.jpg" class= "gallery-img">
-                                                        </a>
-
-                                                        <a href="images/robot.jpeg" 
-                                                            data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
                                                             
-                                                        >
-                                                            <img src="images/robot.jpeg" class= "gallery-img">
-                                                        </a>
-                                                        <a href="images/shipwreck_md.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                            <img src="images/shipwreck_md.jpg" class= "gallery-img">
-                                                        </a>
-                                                        <a href="images/seafloor3.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                            <img src="images/seafloor3.jpg" class= "gallery-img">
-                                                        </a>
-                                                        <a href="images/seafloor2.jpg" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                            <img src="images/seafloor2.jpg" class= "gallery-img">
-                                                        </a>
-                                                        <a href="images/seafloor.jfif" data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                            <img src="images/seafloor.jfif" class= "gallery-img">
-                                                        </a> -->
-                                                        <?php
-                                                                }
+                                                        <?php 
                                                             }
-                                                        }
                                                         ?>
+                                                    
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -566,7 +547,15 @@
                                         
                         
                         
-                        
+                        <?php
+                                }    
+                                
+                                } else {
+                                    echo "0 results";
+                                }
+                            }
+                             
+                        ?>
                         
                     </div>
 

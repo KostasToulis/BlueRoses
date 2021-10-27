@@ -334,7 +334,12 @@
                                                 <h2><?php echo $row['name']?></h2>
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <img class="img" src=<?php echo $row['thumbnail']?>>
+                                                        <?php
+                                                            $filepath=$row['img_path']."thumbnail"; 
+                                                            $photos = scandir($filepath);
+                                                            $photo_url = $filepath.'/'.$photos[2];
+                                                        ?>
+                                                        <img class="img" src='<?php echo $photo_url?>'>
                                                     </div>
                                                     <div class="col-md-7">
                                                         
