@@ -347,7 +347,7 @@
                                 <a class="sidebar-link td-n" href="SplashScreen.php">
                                     <div class="peers ai-c fxw-nw">
                                         <div class="peer">
-                                            <div class="logo"><img src="images/Blue-Roses-Logo2.png" alt="" /></div>
+                                            <div class="logo"><img src="images/logos/Blue-Roses-Logo2.png" alt="" /></div>
                                         </div>
                                         <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
                                     </div>
@@ -510,25 +510,28 @@
                                             <div id="gallery">
                                                 <div class="masonry-item col-md-12" style="padding-top: 2%;">
                                                     <h2>Gallery</h2>
-                                                    <div id="lightgallery">
-
-                                                        <?php
-                                                            $filepath=$row['img_path']."gallery"; 
-                                                            $photos = scandir($filepath);
-                                                            for ($i=2; $i<count($photos); $i++) {
-                                                                $photo = $filepath.'/'.$photos[$i];
-                                                            
-                                                        ?>
-                                                        
-                                                            <a href=<?php echo $photo ?> data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
-                                                                <img src='<?php echo $photo ?>' class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
-                                                            </a>
-                                                            
-                                                        <?php 
-                                                            }
-                                                        ?>
+                                                    <div class="bgc-white bd bdrs-3 p-20 mB-20">
                                                     
+                                                        <div id="lightgallery">
+
+                                                            <?php
+                                                                    $filepath=$row['img_path']."gallery"; 
+                                                                    $photos = scandir($filepath);
+                                                                    for ($i=2; $i<count($photos); $i++) {
+                                                                        $photo = $filepath.'/'.$photos[$i];
+                                                                        // print_r($photo);
+                                                                ?>
+                                                            
+                                                                <a href=<?php print_r($photo)?> data-sub-html="<h4>Photo Title</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">
+                                                                    <img src='<?php print_r($photo)?>' class= "gallery-img">  <!--class="masonry-item col-md-4" style="width: 100%; height: 100%; padding:0; margin-top: 7px;"-->
+                                                                </a>
+                                                                
+                                                            <?php 
+                                                                }
+                                                            ?>
                                                         
+                                                            
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -539,8 +542,8 @@
                                         <div class="bd bgc-white">
                                             <div id="video">
                                                 <h2 style="padding: 1.5%;">Video</h2>
-                                                    <div class="embed-responsive embed-responsive-16by9" style="padding:2%;">
-                                                        <iframe height="50%;" width="50%;" class="embed-responsive-item" src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" allowfullscreen ></iframe>
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe height="50%;" width="50%;" class="embed-responsive-item" style="padding-left: 2%;padding-right: 2%;padding-bottom: 2%;" src="https://www.youtube.com/embed/6k70Cy6UW_A?autoplay=1>" allowfullscreen ></iframe>
                                                     </div>
                                             </div>
                                         </div>
@@ -572,7 +575,7 @@
                     <div style="padding-bottom: 1%;"></div>
                     <p>Blue RoSES project has received funding from the European Maritime & Fisheries Fund -BlueEconomy - 2018 (2018 Blue Economy call 1217), proposal no. 863619</p>
                     <div style="padding-top: 1%;">
-                        <img src='images/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
+                        <img src='images/logos/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
                     </div>
                     
                 </footer>

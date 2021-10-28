@@ -343,7 +343,7 @@
                                 <a class="sidebar-link td-n" href="SplashScreen.php">
                                     <div class="peers ai-c fxw-nw">
                                         <div class="peer">
-                                            <div class="logo"><img src="images/Blue-Roses-Logo2.png" alt="" /></div>
+                                            <div class="logo"><img src="images/logos/Blue-Roses-Logo2.png" alt="" /></div>
                                         </div>
                                         <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text" style="color:white; position: absolute;">BlueRoses</h5></div>
                                     </div>
@@ -600,7 +600,7 @@
                     <div style="padding-bottom: 1%;"></div>
                     <p>Blue RoSES project has received funding from the European Maritime & Fisheries Fund -BlueEconomy - 2018 (2018 Blue Economy call 1217), proposal no. 863619</p>
                     <div style="padding-top: 1%;">
-                        <img src='images/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
+                        <img src='images/logos/EMFF_2018-11-07_1011301.png' style="width: 25%; min-height: 50%;"/>
                     </div>
                     
                 </footer>
